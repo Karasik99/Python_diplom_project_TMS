@@ -4,5 +4,5 @@ from django.views.generic import ListView
 
 
 def home_page(request):
-     return render(request, 'hotel/index.html')
+     return render(request, 'my_hotel/index.html')
 
