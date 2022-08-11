@@ -1,10 +1,22 @@
-<!DOCTYPE html>
+{% extends 'my_hotel/base.html' %}
+#Блок отелей
+{% block preview %}
+{% endblock %}
+{% block hotels %}
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="my_hotel/static/css/Search.css">
+    </head>
+    <body>
+        <h1 class="intro__suptitle">Choose country</h1>
+        <ol class="pills">
+          <li><a class="nav__link" href="Hotels">Турция</a></li>
+          <li><a class="nav__link" href="Hotels">Испания</a></li>
+          <li><a class="nav__link" href="Hotels">Марьина Горка</a></li>
+          <li><a class="nav__link" href="Hotels">Синие Лепяги</a></li>
+        </ol>
+    </body>
 </html>
+{% endblock %}

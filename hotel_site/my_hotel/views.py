@@ -10,7 +10,8 @@ def attraction(request):
      pass
 
 def hotel(request):
-     pass
+     return render(request, 'my_hotel/hotels.html')
 
-def home_page(request):
-     return render(request, 'my_hotel/index.html')
+
+def prewiew(request):
+     return render(request, 'my_hotel/preview.html')
