@@ -4,9 +4,12 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('Hotels', views.hotel),
-    path('Restorans', views.restorans),
-    path('Attraction', views.attraction),
     path('', views.prewiew),
+    path('Hotels', views.hotel),
+    path('hotels.Турция', views.cityTurkey),
+    path('Алания', views.cityTurkey_Alania),
+    path('Attraction', views.attraction),
+    path('Restorans', views.restorans),
+
 
 ]
