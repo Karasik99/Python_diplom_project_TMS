@@ -4,21 +4,36 @@ from django.views.generic import ListView
 from .models import *
 
 
+def prewiew(request):
+     return render(request, 'my_hotel/preview.html')
+
+
 def countries(request):
      rows = Country.objects.all()
-     country_name = {
-          'title': rows}
+     country_name = {'title': rows}
      return render(request, 'my_hotel/countries.html', country_name)
 
 
 def show_cities_Turkey(request):
      city_turkey = City.objects.filter(country_id=1)
-     city_name = {
-          'title': city_turkey}
+     city_name = {'title': city_turkey}
      return render(request, 'my_hotel/city.html', city_name)
 
-def show_hotels_Alania(request):
-     rows = Hotels.objects.filter(city_id=1)
+
+def show_cities_Ukraine(request):
+     city_ukraine = City.objects.filter(country_id=2)
+     city_name = {'title': city_ukraine}
+     return render(request, 'my_hotel/city.html', city_name)
+
+
+def show_cities_Egipt(request):
+     city_egipt = City.objects.filter(country_id=3)
+     city_name = {'title': city_egipt}
+     return render(request, 'my_hotel/city.html', city_name)
+
+
+def show_hotels(request,id):
+     rows = Hotels.objects.filter(city_id=id)
      hotels = {
           'title': rows,
           'content':rows,
@@ -38,12 +53,11 @@ def show_post(request,id):
           'free_places':rows,
           'id_hotels': rows,
      }
-     return render(request, 'my_hotel/index2.html',context)
+     return render(request, 'my_hotel/show_post.html',context)
 
 
 
-def prewiew(request):
-     return render(request, 'my_hotel/preview.html')
+
 
 
 

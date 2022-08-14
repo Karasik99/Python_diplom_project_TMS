@@ -5,12 +5,15 @@ from django.urls import path
 from .models import *
 urlpatterns = [
     path('', views.prewiew),
-    path('Hotels', views.countries),
+    path('Home', views.prewiew),
+    path('Choose_countries', views.countries),
     path('hotels.Турция', views.show_cities_Turkey),
-    path('Алания', views.show_hotels_Alania),
+    path('hotels.Украина', views.show_cities_Ukraine),
+    path('hotels.Египет', views.show_cities_Egipt),
+    path('city.<int:id>', views.show_hotels),
+    path('hotel.<int:id>', views.show_post),
     path('Attraction', views.attraction),
     path('Restorans', views.restorans),
-    path('hotel.<int:id>', views.show_post),
 
 
 ]
