@@ -4,11 +4,11 @@ from django.views.generic import ListView
 from .models import *
 
 
-def hotel(request):
+def countries(request):
      rows = Country.objects.all()
      country_name = {
           'title': rows}
-     return render(request, 'my_hotel/hotels.html', country_name)
+     return render(request, 'my_hotel/countries.html', country_name)
 
 
 def cityTurkey(request):
@@ -24,7 +24,8 @@ def cityTurkey_Alania(request):
           'content':rows,
           'photo':rows,
           'free_places':rows}
-     return render(request, 'my_hotel/СityTurkey_Alania.html',hotels)
+     return render(request, 'my_hotel/СityTurkey_Alania.html', hotels)
+
 
 def prewiew(request):
      return render(request, 'my_hotel/preview.html')
@@ -40,7 +41,7 @@ def attraction(request):
      pass
 # class CountryView(ListView):
 #     model = Country
-#     template_name = 'my_hotel/hotels.html'
+#     template_name = 'my_hotel/countries.html'
 #
 #     def country(self):
 #      return Country.objects.all()

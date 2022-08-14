@@ -5,7 +5,7 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.prewiew),
-    path('Hotels', views.hotel),
+    path('Hotels', views.countries),
     path('hotels.Турция', views.cityTurkey),
     path('Алания', views.cityTurkey_Alania),
     path('Attraction', views.attraction),

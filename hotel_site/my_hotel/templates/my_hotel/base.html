@@ -10,8 +10,6 @@
     <title>MyHotels</title>
 </head>
 
-
-
 <header class="header" id="header">
     <div class="container">
         <div class="header__inner">
@@ -27,166 +25,25 @@
         </div>
     </div>
 </header>
-
-
-<div class="page">
-
     <!-- Intro -->
     <div class="intro" id="intro">
         <div class="container">
             <div class="intro__inner">
                 {% block preview %}
                 {% endblock %}
-                {% block hotels %}
+                {% block countries %}
+                {% endblock %}
+                {% block city %}
                 {% endblock %}
                 {% block hotel_country %}
                 {% endblock %}
             </div>
         </div>
-
-
-        <div class="slider">
-            <div class="container">
-                <div class="slider__inner">
-                    <div class="slider__item active">
-                        <a class="nav__link" href="#" data-scroll="#about">О нас</a>
-                    </div>
-                    <div class="slider__item active">
-                        <a class="nav__link" href="#" data-scroll="#galery">Галерея</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
-    </div><!-- /.intro -->
 
-
-    <!-- About -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section__header">
-                <h3 class="section__suptitle">Comment about project</h3>
-                <h2 class="section__title">About project</h2>
-                <div class="section__text">
-                    <p>На этот проект ушло достаточно времени сил и здравого смысла.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="my_hotel/static/images/about/1.jpg" alt="">
-                    </div>
-                    <div class="card__text">Море</div>
-                </div>
-            </div>
-
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="my_hotel/static/images/about/2.jpg" alt="">
-                    </div>
-                    <div class="card__text">super team</div>
-                </div>
-            </div>
-
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="my_hotel/static/images/about/3.jpg" alt="">
-                    </div>
-                    <div class="card__text">super team</div>
-                </div>
-            </div>
-        </div>
-
-    <!-- Works -->
-    <section class="section" id="galery">
-        <div class="container">
-            <div class="section__header">
-                <h3 class="section__suptitle">Gallery</h3>
-                <h2 class="section__title">Simple gallery</h2>
-                <div class="section__text">
-                    <p>A simple gallery of beautiful pictures</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="works">
-            <div class="works__col">
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/1.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/2.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="works__col">
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/3.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/4.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="works__col">
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/5.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="works__col">
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/6.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-                <div class="works__item">
-                    <img class="works__image" src="my_hotel/static/images/works/7.jpg" alt="">
-                    <div class="works__info">
-                        <div class="works__title">creatively designed</div>
-                        <div class="works__text">Lorem ipsum dolor sit</div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.works -->
-    </section>
-
-    <!-- Map -->
-    <section class="section  section--map">
-        <div class="container">
-            <div class="map">
-                <h2 class="map__title">
-                    <div><i class="fas fa-map-marker-alt"></i></div>
-                    <a href="https://yandex.by/maps/157/minsk/house/Zk4YcwdoSEICQFtpfXVzdH5lbQ==/?ll=27.508542%2C53.925076&utm_source=main_stripe_big&z=19" target="_blank">Open Map</a>
-                </h2>
-            </div>
-        </div>
-    </section>
+    {% block footer %}
+    {% endblock %}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

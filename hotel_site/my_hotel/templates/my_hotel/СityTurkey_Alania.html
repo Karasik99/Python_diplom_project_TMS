@@ -1,27 +1,36 @@
 {% extends 'my_hotel/base.html' %}
-#Блок отелей
-{% block preview %}
-{% endblock %}
+#Блок отелей МАКСИМУМ 6 ОТЕЛЕЙ!!!!!!! НУжна ПАГИНАЦИЯ
 {% block hotel_country %}
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="my_hotel/static/css/from_hotel.css">
+        <style>
+        body{
+          background-image: url(my_hotel/static/images/1221.jpeg);
+          background-position:center bottom;
+          background-repeat: repeat;
+          background-size: cover;
+        </style>
     </head>
-
     <body>
+
+{%for row in title%}
     <!-- Wedo -->
+<div class="intros" id="intros">
+    <div class="page">
     <section class="section">
         <div class="container">
-            <div class="section__header">
-                <div class="section__text">
-                    <p><h2>Hotel 1 test</h2></p>
+                <div class="section__header">
+                    <div class="section__text_hotel">
+                        <p><h2>{{ row.title }}</h2></p>
+                    </div>
                 </div>
-            </div>
             <div class="wedo">
                 <div class="wedo__item">
-                    <img class="wedo__img" src="my_hotel/static/images/hotels/turkey/1.jpg" alt="">
+                    <img class="wedo__img" src={{ row.photo }} alt="">
                 </div>
                 <div class="wedo__item">
                     <div class="accordion">
@@ -31,7 +40,7 @@
                                 <div class="accordion__title">Описание</div>
                             </div>
                             <div class="accordion__content" id="wedo_1">
-                                <p>Очень Красивое место</p>
+                                <p><h1>{{ row.content }}</h1></p>
                             </div>
                         </div>
                             <div >
@@ -42,7 +51,10 @@
                 </div><!-- /.wedo__item -->
             </div><!-- /.wedo -->
         </div>
+    </div>
     </section>
-    </body>
 
+    </body>
+    {% endfor %}
 {% endblock %}
+

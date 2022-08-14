@@ -373,6 +373,7 @@ hr {
     width: 100%;
     max-width: 950px;
     margin: 0 auto 50px;
+    transform: translateY(-200%);
 
     text-align: center;
 }
@@ -403,6 +404,7 @@ hr {
 .section__text {
     font-size: 15px;
     color: #999;
+
 }
 
 
@@ -423,6 +425,7 @@ hr {
 .card__inner {
     position: relative;
     background-color: #95e1d3;
+    transform: translateY(-190%);
 }
 
 .card__inner:hover .card__img {
@@ -839,7 +842,7 @@ hr {
 
 .works__item {
     position: relative;
-
+    transform: translateY(-100%);
     background: linear-gradient(to bottom, #f38181, #fce38a);
 }
 
@@ -1579,6 +1582,7 @@ hr {
     /* Section */
     .section__header {
         margin-bottom: 50px;
+
     }
 
     .section__suptitle {
