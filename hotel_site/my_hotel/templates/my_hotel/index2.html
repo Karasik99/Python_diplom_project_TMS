@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Nature is pleased with simplicity, 1, 2, 3, 4, 5, 6, The mountainsare calling">
     <meta name="description" content="">
-    <title>Страница 1</title>
+    <title>MyHotels</title>
     <link rel="stylesheet" href="my_hotel/static/css/show_post/nicepage.css" media="screen">
     <link rel="stylesheet" href="my_hotel/static/css/show_post/Страница-1.css" media="screen">
     <script class="u-script" type="text/javascript" src="my_hotel/static/js/jquery-1.9.1.min.js" defer=""></script>
@@ -26,11 +26,12 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="/">
   </head>
+{%for row in title %}
   <body data-home-page="https://website2645640.nicepage.io/Страница-1.html?version=3a7388d7-58e1-41e5-b3c4-3ae88e5dd0dd" data-home-page-title="Страница 1" class="u-body u-overlap u-overlap-contrast u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-c67f"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_f28c" data-image-width="1280" data-image-height="853">
       <img class="u-back-image u-expanded" src="my_hotel/static/images_show_post/ferfer.jpg">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h4 class="u-text u-text-default u-text-1">НАзвание Отеля</h4>
+        <h4 class="u-text u-text-default u-text-1">Hotel {{row.title}}</h4>
       </div>
     </section>
     <section class="u-clearfix u-section-2" id="carousel_8a6e">
@@ -79,17 +80,17 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Down">
           <div class="u-container-layout u-container-layout-1">
-            <h6 class="u-text u-text-default u-text-1">about our agency</h6>
-            <h3 class="u-custom-font u-font-playfair-display u-text u-text-2">Описание отеля</h3>
-            <p class="u-text u-text-grey-40 u-text-3"> Article evident arrived express highest men did boy. Mistress sensible entirely am so. Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.&nbsp;He an thing rapid these after going drawn or. Timed she his law the spoil round defer. In surprise concerns informed betrayed he learning is ye. Ignorant formerly so ye blessing. He as spoke avoid given downs money on we. Of properly carriage shutters ye as wandered up repeated moreover.</p>
+            <h6 class="u-text u-text-default u-text-1">INFO</h6>
+            <h3 class="u-custom-font u-font-playfair-display u-text u-text-2">About our Hotel</h3>
+            <p class="u-text u-text-grey-40 u-text-3"> {{row.content}}.</p>
           </div>
         </div>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-section-4" id="sec-f510">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-default u-text-1">Pricing Table Template</h2>
-        <p class="u-text u-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h2 class="u-text u-text-default u-text-1">Price Policy</h2>
+        <p class="u-text u-text-2">You can choose a room according to your budget.</p>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity u-table-entity-1">
             <colgroup>
@@ -100,21 +101,21 @@
             </colgroup>
             <thead class="u-align-center u-black u-table-header u-table-header-1">
               <tr style="height: 21px;">
-                <th class="u-align-left u-border-1 u-border-grey-30 u-table-cell">Features</th>
-                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-2">Daily</th>
-                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-3">Monthly</th>
-                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-4">Year</th>
+                <th class="u-align-left u-border-1 u-border-grey-30 u-table-cell">Rooms</th>
+                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-2">Economy</th>
+                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-3">Standard</th>
+                <th class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-4">Business</th>
               </tr>
             </thead>
             <tbody class="u-align-center u-table-body">
               <tr style="height: 31px;">
-                <td class="u-align-left u-first-column u-table-cell u-table-cell-5">Pricing</td>
+                <td class="u-align-left u-first-column u-table-cell u-table-cell-5">Price</td>
                 <td class="u-table-cell u-table-cell-6">$ 29</td>
                 <td class="u-table-cell u-table-cell-7">$ 59</td>
                 <td class="u-table-cell u-table-cell-8">$ 99</td>
               </tr>
               <tr style="height: 30px;">
-                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">10 Hours Training</td>
+                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">Vacancy</td>
                 <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-6ba6" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
                 </td>
                 <td class="u-align-center u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-c154" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
@@ -132,7 +133,7 @@
                 </td>
               </tr>
               <tr style="height: 30px;">
-                <td class="u-align-left u-table-cell u-table-cell-17">Individual Consulting</td>
+                <td class="u-align-left u-table-cell u-table-cell-17">Sea view</td>
                 <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-7"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-7276" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
                 </td>
                 <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-8"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-d5be" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
@@ -141,7 +142,7 @@
                 </td>
               </tr>
               <tr style="height: 30px;">
-                <td class="u-align-left u-table-cell u-table-cell-21">Certificate</td>
+                <td class="u-align-left u-table-cell u-table-cell-21">All inclusive</td>
                 <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-10"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-9e00" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
                 </td>
                 <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-11"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-3fe6" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
@@ -166,7 +167,7 @@
         </div>
       </div>
     </section>
-    
+  {%endfor %}
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-b7f2"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1" data-lang-en="Sample text. Click to select the Text Element.">Sample text. Click to select the Text Element.</p>
