@@ -11,26 +11,44 @@ def countries(request):
      return render(request, 'my_hotel/countries.html', country_name)
 
 
-def cityTurkey(request):
+def show_cities_Turkey(request):
      city_turkey = City.objects.filter(country_id=1)
      city_name = {
           'title': city_turkey}
      return render(request, 'my_hotel/city.html', city_name)
 
-def cityTurkey_Alania(request):
+def show_hotels_Alania(request):
      rows = Hotels.objects.filter(city_id=1)
      hotels = {
           'title': rows,
           'content':rows,
           'photo':rows,
-          'free_places':rows}
-     return render(request, 'my_hotel/СityTurkey_Alania.html', hotels)
+          'free_places':rows,
+          'id_hotels': rows,
+     }
+     return render(request, 'my_hotel/hotels_Alania.html', hotels)
+
+
+def show_post(request,id):
+     rows = Hotels.objects.filter(id=id)
+     context = {
+          'title': rows,
+          'content':rows,
+          'photo':rows,
+          'free_places':rows,
+          'id_hotels': rows,
+     }
+     return render(request, 'my_hotel/index2.html',context)
+
 
 
 def prewiew(request):
      return render(request, 'my_hotel/preview.html')
 
 
+
+def get_obejct_or_404(Hotels, pk):
+     pass
 
 
 
@@ -39,9 +57,3 @@ def restorans(request):
 
 def attraction(request):
      pass
-# class CountryView(ListView):
-#     model = Country
-#     template_name = 'my_hotel/countries.html'
-#
-#     def country(self):
-#      return Country.objects.all()

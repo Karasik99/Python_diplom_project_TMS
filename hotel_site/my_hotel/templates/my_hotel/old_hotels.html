@@ -17,7 +17,7 @@
     </head>
     <body>
 
-{%for row in title%}
+{%for row in title %}
     <!-- Wedo -->
 <div class="intros" id="intros">
     <div class="page">
@@ -25,12 +25,12 @@
         <div class="container">
                 <div class="section__header">
                     <div class="section__text_hotel">
-                        <p><h2>{{ row.title }}</h2></p>
+                        <p><h1>{{ row.title }}</h1></p>
                     </div>
                 </div>
             <div class="wedo">
                 <div class="wedo__item">
-                    <img class="wedo__img" src={{ row.photo }} alt="">
+                    <img class="wedo__img" src={{row.photo}} alt="">
                 </div>
                 <div class="wedo__item">
                     <div class="accordion">
@@ -44,17 +44,17 @@
                             </div>
                         </div>
                             <div >
-                            <a class="accordion__item btn" href="#" >Подробнее</a>
+                            <a class="accordion__item btn" href="post/{{row.id}}" >Подробнее об отеле {{ row.title }}</a>
                             </div>
                         </div>
                     </div><!-- /.accordion -->
                 </div><!-- /.wedo__item -->
             </div><!-- /.wedo -->
-        </div>
     </div>
     </section>
-
-    </body>
     {% endfor %}
+    </body>
+
 {% endblock %}
+
 
