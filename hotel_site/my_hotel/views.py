@@ -46,13 +46,18 @@ def show_hotels(request,id):
 
 def show_post(request,id):
      rows = Hotels.objects.filter(id=id)
+     tags = Hotels.tags.through.objects.filter(hotels_id=id)
      context = {
           'title': rows,
           'content':rows,
           'photo':rows,
           'free_places':rows,
           'id_hotels': rows,
+          'tags': tags,
      }
+     # {%for tag in tags%}
+     #      {{tag.tag}}
+     #  {%endfor%}
      return render(request, 'my_hotel/show_post.html',context)
 
 

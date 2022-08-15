@@ -29,7 +29,7 @@
       <p></p>
       <h2 class="accommodation__heading site-heading">Гостиницы</h2>
       <ul class="accommodation__list list-reset">
-          {%for row in title %}
+  {%for row in title %}
         <li class="accommodation__item">
           <article class="accommodation-article">
             <img src="{{row.photo}}" alt="{{row.title}}">
@@ -56,7 +56,7 @@
             </div>
           </article>
         </li>
-{% endfor %}
+        {% endfor %}
       </ul>
     </div>
   </section>

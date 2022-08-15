@@ -82,7 +82,10 @@
           <div class="u-container-layout u-container-layout-1">
             <h6 class="u-text u-text-default u-text-1">INFO</h6>
             <h3 class="u-custom-font u-font-playfair-display u-text u-text-2">About our Hotel</h3>
-            <p class="u-text u-text-grey-40 u-text-3"> {{row.content}}.</p>
+            <p class="u-text u-text-grey-40 u-text-3"> {{row.content}}</p>
+            {%for tag in tags%}
+            <p class="u-text u-text-grey-40 u-text-3"> {{tag.tag}}</p>
+            {%endfor%}
           </div>
         </div>
       </div>
