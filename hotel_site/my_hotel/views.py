@@ -41,7 +41,7 @@ def show_hotels(request,id):
           'free_places':rows,
           'id_hotels': rows,
      }
-     return render(request, 'my_hotel/hotels_Alania.html', hotels)
+     return render(request, 'my_hotel/test_filter.html', hotels)
 
 
 def show_post(request,id):
@@ -69,10 +69,3 @@ def show_post(request,id):
 def get_obejct_or_404(Hotels, pk):
      pass
 
-
-
-def restorans(request):
-     pass
-
-def attraction(request):
-     pass

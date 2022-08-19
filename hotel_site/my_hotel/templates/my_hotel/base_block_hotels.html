@@ -76,7 +76,10 @@
                       <ol class="u-text u-text-3">
                         {% for row in title %}
                         <li>
-                          <a href="city.{{row.id}}" class="u-btn u-button-link u-button-style u-none u-text-body-alt-color u-btn-1">{{row.title}}</a>
+                          {% block urlscountry %}
+                          {% endblock %}
+                          {% block urlscity %}
+                          {% endblock %}
                         </li>
                         {% endfor %}
                       </ol>
