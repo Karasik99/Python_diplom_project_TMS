@@ -35,9 +35,12 @@
 
 		<section class="cd-gallery">
 			<ul>
-				  {%for row in title %}
+				  {%for row in rows %}
 				<li class="mix color-1 check1 radio2 option3"><img src="{{row.photo}}" alt="">
 					<p class="u-text u-text-1">{{row.title}}</p>
+					{%for row in cd %}
+					<p class="u-text u-text-1">{{row.title}}: {{row.city}}</p>
+					{% endfor %}
 					<a href="hotel.{{row.id}}" class="u-btn u-button-style u-gradient u-text-body-alt-color u-btn-1">Подробнее об отеле&nbsp;<br></a>
 				</li>
 				{% endfor %}
