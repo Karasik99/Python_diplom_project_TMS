@@ -4,8 +4,10 @@ from . import views
 from django.urls import path
 from .models import *
 urlpatterns = [
-    path('', views.prewiew),
-    path('Home', views.prewiew),
+    path('', views.preview),
+    path('Home', views.preview),
+    path('Login', views.login),
+    path('Register', views.register),
     path('Choose_countries', views.countries),
     path('country.Турция', views.show_cities_Turkey),
     path('country.Украина', views.show_cities_Ukraine),

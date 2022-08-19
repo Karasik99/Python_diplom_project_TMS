@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <title>MyHotels</title>
 </head>
-
+{% block navbar %}
 <header class="header" id="header">
     <div class="container">
         <div class="header__inner">
@@ -18,12 +18,13 @@
             <nav class="nav" id="nav">
                 <a class="nav__link" href="Home">Главная</a>
                 <a class="nav__link" href="Choose_countries">Отели</a>
-                <a class="nav__link" href="#" >Войти</a>
-                <a class="nav__link" href="#" >Регистрация</a>
+                <a class="nav__link" href="Login" >Войти</a>
+                <a class="nav__link" href="Register" >Регистрация</a>
             </nav>
         </div>
     </div>
 </header>
+{% endblock %}
     <!-- Intro -->
     <div class="intro" id="intro">
         <div class="container">

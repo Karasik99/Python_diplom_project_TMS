@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.views.generic import ListView
 from .models import *
+from .forms import LoginForm, UserRegistrationForm
 
-
-def prewiew(request):
+def preview(request):
      return render(request, 'my_hotel/preview.html')
 
 
@@ -46,6 +46,7 @@ def show_hotels(request,id):
 
 def show_post(request,id):
      rows = Hotels.objects.filter(id=id)
+     titlews= City.objects.filter(country_id=id)
      tags = Hotels.tags.through.objects.filter(hotels_id=id)
      context = {
           'title': rows,
@@ -58,10 +59,27 @@ def show_post(request,id):
      # {%for tag in tags%}
      #      {{tag.tag}}
      #  {%endfor%}
-     return render(request, 'my_hotel/show_post.html',context)
+     return render(request, 'my_hotel/show_post.html',context,)
 
 
 
+def login(request):
+     return render(request, 'my_hotel/auth/login.html')
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+            # Set the chosen password
+            # new_user.set_password(user_form.cleaned_data['password'])
+            # Save the User object
+            new_user.save()
+            return render(request, 'my_hotel/preview.html', {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
 
 
 
