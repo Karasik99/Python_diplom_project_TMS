@@ -36,29 +36,33 @@ def show_cities_Egipt(request):
 
 def show_hotels(request):
     rows = Hotels.objects.all()
-    cd = Country.objects.all()
+    country = Country.objects.all()
+    city = City.objects.all()
+    tags = Tag.objects.all()
     hotels = {
         'rows':rows,
-        'cd':cd,
+        'countries': country,
+        'cities': city,
+        'tags': tags
     }
+    print(hotels)
     return render(request, 'my_hotel/test_filter.html', hotels)
 
 
-def show_post(request,id):
-     rows = Hotels.objects.filter(id=id)
-     tags = Hotels.tags.through.objects.filter(hotels_id=id)
-     context = {
-          'title': rows,
-          'content':rows,
-          'photo':rows,
-          'free_places':rows,
-          'id_hotels': rows,
-          'tags': tags,
+def show_post(request, form):
+    rows = Hotels.objects.filter(id=id)
+    country = Country.objects.get(pk=Hotels.objects.get(pk=id).city.pk)
+    context = {
+            'rows': rows,
+            'cnt': country
+        #   'title': rows,
+        #   'content':rows,
+        #   'photo':rows,
+        #   'free_places':rows,
+        #   'id_hotels': rows,
+        #   'tags': tags,
      }
-     # {%for tag in tags%}
-     #      {{tag.tag}}
-     #  {%endfor%}
-     return render(request, 'my_hotel/show_post.html',context)
+    return render(request, 'my_hotel/show_post.html',context)
 
 
 def end(request,id):
@@ -107,4 +111,3 @@ def user_logout(request):
 
 def get_obejct_or_404(Hotels, pk):
      pass
-
