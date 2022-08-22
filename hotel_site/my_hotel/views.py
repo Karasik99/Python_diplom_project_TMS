@@ -109,5 +109,25 @@ def user_logout(request):
     return redirect("Login")
 
 
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save()
+            login(request, new_user)
+            Users.objects.create(name_user = new_user.username,
+                                 email_user = new_user.email)
+
+            return render(request, 'my_hotel/preview.html', {'user_form': user_form})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("Login")
+
+
 def get_obejct_or_404(Hotels, pk):
      pass
