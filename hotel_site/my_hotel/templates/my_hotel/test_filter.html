@@ -35,12 +35,12 @@
 
 		<section class="cd-gallery">
 			<ul>
-				  {%for row in rows %}
+
+				{% for row in rows %}
 				<li class="mix color-1 check1 radio2 option3"><img src="{{row.photo}}" alt="">
 					<p class="u-text u-text-1">{{row.title}}</p>
-					{%for row in cd %}
-					<p class="u-text u-text-1">{{row.title}}: {{row.city}}</p>
-					{% endfor %}
+					<p class="u-text u-text-1">{{row.city.country}}: {{row.city}}</p>
+
 					<a href="hotel.{{row.id}}" class="u-btn u-button-style u-gradient u-text-body-alt-color u-btn-1">Подробнее об отеле&nbsp;<br></a>
 				</li>
 				{% endfor %}
@@ -73,27 +73,19 @@
 				</div> <!-- cd-filter-block -->
 
 				<div class="cd-filter-block">
-					<h4>Check boxes</h4>
+					<h4>Опции отеля</h4>
 
 					<ul class="cd-filter-content cd-filters list">
-						<li>
-							<input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-			    			<label class="checkbox-label" for="checkbox1">Option 1</label>
-						</li>
-
-						<li>
-							<input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-							<label class="checkbox-label" for="checkbox2">Option 2</label>
-						</li>
-
-						<li>
-							<input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-							<label class="checkbox-label" for="checkbox3">Option 3</label>
-						</li>
+						{% for tag in tags %}
+							<li>
+								<input class="filter" type="checkbox" id="{{ tag.pk }}">
+								<label class="checkbox-label" for="checkbox1">{{ tag }}</label>
+							</li>
+						{% endfor %}
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
 
-				<div class="cd-filter-block">
+				{% comment %} <div class="cd-filter-block">
 					<h4>Select</h4>
 
 					<div class="cd-filter-content">
@@ -107,28 +99,37 @@
 							</select>
 						</div> <!-- cd-select -->
 					</div> <!-- cd-filter-content -->
-				</div> <!-- cd-filter-block -->
+				</div> <!-- cd-filter-block --> {% endcomment %}
 
 				<div class="cd-filter-block">
-					<h4>Radio buttons</h4>
+					<h4>Cтрана</h4>
 
 					<ul class="cd-filter-content cd-filters list">
-						<li>
-							<input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
-							<label class="radio-label" for="radio1">All</label>
-						</li>
-
-						<li>
-							<input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
-							<label class="radio-label" for="radio2">Choice 2</label>
-						</li>
-
-						<li>
-							<input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
-							<label class="radio-label" for="radio3">Choice 3</label>
-						</li>
+						{% for country in countries %}
+							<li>
+								<input class="filter" type="checkbox" id="{{ country.pk }}">
+								<label class="checkbox-label" for="checkbox1">{{ country }}</label>
+							</li>
+						{% endfor %}
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
+
+				{% comment %} <div class="cd-filter-block">
+					<h4>Город</h4>
+
+					<ul class="cd-filter-content cd-filters list">
+						{% for city in cities %}
+							<li>
+								<input class="filter" type="checkbox" id="{{ city.pk }}">
+								<label class="checkbox-label" for="checkbox1">{{ city }}</label>
+							</li>
+						{% endfor %}
+					</ul> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block --> {% endcomment %}
+
+				<div class="form-group">
+					<button type="submit" class="form-control btn btn-primary submit px-3">Search</button>
+				</div>
 			</form>
 
 			<a href="#0" class="cd-close">Close</a>
