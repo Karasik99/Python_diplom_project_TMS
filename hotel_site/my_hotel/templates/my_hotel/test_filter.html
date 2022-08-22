@@ -35,15 +35,13 @@
 
 		<section class="cd-gallery">
 			<ul>
-
 				{% for row in rows %}
 				<li class="mix color-1 check1 radio2 option3"><img src="{{row.photo}}" alt="">
 					<p class="u-text u-text-1">{{row.title}}</p>
 					<p class="u-text u-text-1">{{row.city.country}}: {{row.city}}</p>
-
 					<a href="hotel.{{row.id}}" class="u-btn u-button-style u-gradient u-text-body-alt-color u-btn-1">Подробнее об отеле&nbsp;<br></a>
 				</li>
-				{% endfor %}
+
 <!--				<li class="mix color-2 check2 radio2 option2"><img src="my_hotel/static/imagesfilter/img-2.jpg" alt="Image 2"></li>-->
 <!--				<li class="mix color-1 check3 radio3 option1"><img src="my_hotel/static/imagesfilter/img-3.jpg" alt="Image 3"></li>-->
 <!--				<li class="mix color-1 check3 radio2 option4"><img src="my_hotel/static/imagesfilter/img-4.jpg" alt="Image 4"></li>-->
@@ -55,6 +53,7 @@
 <!--				<li class="mix color-1 check3 radio2 option4"><img src="my_hotel/static/imagesfilter/img-10.jpg" alt="Image 10"></li>-->
 <!--				<li class="mix color-1 check3 radio3 option2"><img src="my_hotel/static/imagesfilter/img-11.jpg" alt="Image 11"></li>-->
 <!--				<li class="mix color-2 check1 radio3 option1"><img src="my_hotel/static/imagesfilter/img-12.jpg" alt="Image 12"></li>-->
+				{% endfor %}
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
