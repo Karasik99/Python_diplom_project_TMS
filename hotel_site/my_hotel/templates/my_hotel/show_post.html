@@ -83,6 +83,8 @@
             <h6 class="u-text u-text-default u-text-1">INFO</h6>
             <h3 class="u-custom-font u-font-playfair-display u-text u-text-2">About our Hotel</h3>
             <p class="u-text u-text-grey-40 u-text-3"> {{row.content}}</p>
+            </div>
+           </div>
             {%for tag in tags%}
             <p class="u-text u-text-grey-40 u-text-3"> {{tag.tag}}</p>
             {%endfor%}
@@ -156,13 +158,7 @@
               <tr style="height: 50px;">
                 <td class="u-table-cell u-table-cell-25"></td>
                 <td class="u-table-cell">
-                  <a href="" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-1" target="_blank">Buy Now</a>
-                </td>
-                <td class="u-table-cell">
-                  <a href="" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2" target="_blank">Buy Now</a>
-                </td>
-                <td class="u-table-cell">
-                  <a href="" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-3" target="_blank">Buy Now</a>
+                  <a href="buy.{{row.id}}" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2" target="_blank">Забронировать</a>
                 </td>
               </tr>
             </tbody>

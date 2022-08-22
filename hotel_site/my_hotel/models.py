@@ -40,3 +40,12 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag
+
+
+class Users(models.Model):
+    name_user = models.CharField(max_length=30, verbose_name='Имя')
+    email_user = models.EmailField(max_length=30, verbose_name='Email')
+
+
+    def __str__(self):
+        return self.name_user
