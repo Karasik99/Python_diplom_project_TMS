@@ -115,46 +115,52 @@
             <tbody class="u-align-center u-table-body">
               <tr style="height: 31px;">
                 <td class="u-align-left u-first-column u-table-cell u-table-cell-5">Price</td>
-                <td class="u-table-cell u-table-cell-6">$ 29</td>
-                <td class="u-table-cell u-table-cell-7">$ 59</td>
-                <td class="u-table-cell u-table-cell-8">$ 99</td>
+                {%for row in price_econom%}
+                  <td class="u-table-cell u-table-cell-6">$ {{row.price_econom}}</td>
+                {%endfor%}
+                {%for row in price_standart%}
+                 <td class="u-table-cell u-table-cell-7">$ {{row.price_standart}}</td>
+                {%endfor%}
+                {%for row in price_business%}
+                <td class="u-table-cell u-table-cell-8">$ {{row.price_business}}</td>
+                {%endfor%}
               </tr>
-              <tr style="height: 30px;">
-                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">Vacancy</td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-6ba6" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-align-center u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-c154" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-ca86" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-              </tr>
-              <tr style="height: 30px;">
-                <td class="u-align-left u-first-column u-table-cell u-table-cell-13">Coffee and Lunch</td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-4"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-a1b2" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-5"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-bb4d" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-6"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-b9ee" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-              </tr>
-              <tr style="height: 30px;">
-                <td class="u-align-left u-table-cell u-table-cell-17">Sea view</td>
-                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-7"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-7276" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-8"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-d5be" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-9"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-1bed" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-              </tr>
-              <tr style="height: 30px;">
-                <td class="u-align-left u-table-cell u-table-cell-21">All inclusive</td>
-                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-10"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-9e00" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-11"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-3fe6" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; 
-                </td>
-                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-12"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-f53b" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; 
-                </td>
-              </tr>
+<!--              <tr style="height: 30px;">-->
+<!--                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">Vacancy</td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-6ba6" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-align-center u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-c154" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-ca86" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr style="height: 30px;">-->
+<!--                <td class="u-align-left u-first-column u-table-cell u-table-cell-13">Coffee and Lunch</td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-4"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-a1b2" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-5"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-bb4d" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-6"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-b9ee" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr style="height: 30px;">-->
+<!--                <td class="u-align-left u-table-cell u-table-cell-17">Sea view</td>-->
+<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-7"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-7276" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-8"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-d5be" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-9"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-1bed" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr style="height: 30px;">-->
+<!--                <td class="u-align-left u-table-cell u-table-cell-21">All inclusive</td>-->
+<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-10"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-9e00" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-11"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-3fe6" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-12"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-f53b" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
+<!--                </td>-->
+<!--              </tr>-->
               <tr style="height: 50px;">
                 <td class="u-table-cell u-table-cell-25"></td>
                 <td class="u-table-cell">

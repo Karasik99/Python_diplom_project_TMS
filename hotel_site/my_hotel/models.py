@@ -2,6 +2,7 @@ from django.db import models
 
 from django.urls import reverse
 
+
 class Country(models.Model):
     title = models.CharField(max_length=255, verbose_name='Страна')
 
@@ -27,6 +28,9 @@ class Hotels(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фотография')
     is_working = models.BooleanField(default=True, verbose_name='Публикация')
     free_places = models.IntegerField(verbose_name='Кол-во мест')
+    price_econom = models.IntegerField(verbose_name='Цена Эконома', default=100)
+    price_standart = models.IntegerField(verbose_name='Цена Стандарта', default=150)
+    price_business = models.IntegerField(verbose_name='Цена Бизнеса', default=200)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='Город')
     tags = models.ManyToManyField('Tag')
 

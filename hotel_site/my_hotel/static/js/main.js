@@ -201,7 +201,7 @@ var buttonFilter = {
 	    !self.outputString.length && (self.outputString = 'all'); 
 	
     	// Send the output string to MixItUp via the 'filter' method:    
-		if(self.$container.mixItUp('isLoaded')){
+		if(self.$container.mixItUp('')){
 	    	self.$container.mixItUp('filter', self.outputString);
 		}
   	}

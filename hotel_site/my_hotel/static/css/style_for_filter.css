@@ -443,11 +443,11 @@ xcustom form elements
 .cd-filter-block {
   margin-bottom: 1.6em;
 }
-.cd-filter-block h4 {
+.cd-filter-block h4  {
   /* filter block title */
   position: relative;
   margin-bottom: .2em;
-  padding: 10px 0 10px 20px;
+  padding: 10px 0 15px 20px;
   color: #9a9a9a;
   text-transform: uppercase;
   font-weight: 700;

@@ -4,6 +4,10 @@ from django.views.generic import ListView
 from .models import *
 from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib.auth import login, logout
+from django.views.generic import ListView
+from django.core.paginator import Paginator
+import json
+
 
 
 def preview(request):
@@ -39,42 +43,53 @@ def show_hotels(request):
     country = Country.objects.all()
     city = City.objects.all()
     tags = Tag.objects.all()
-    hotels = {
+    name = Hotels.tags.through.objects.all()
+    x = {
         'rows':rows,
         'countries': country,
         'cities': city,
-        'tags': tags
+        'tags': tags,
+        'name': name,
     }
-    print(hotels)
-    return render(request, 'my_hotel/test_filter.html', hotels)
+
+    return render(request, 'my_hotel/test_filter.html', x)
 
 
-def show_post(request, form):
-    rows = Hotels.objects.filter(id=id)
-    country = Country.objects.get(pk=Hotels.objects.get(pk=id).city.pk)
-    context = {
-            'rows': rows,
-            'cnt': country
-        #   'title': rows,
-        #   'content':rows,
-        #   'photo':rows,
-        #   'free_places':rows,
-        #   'id_hotels': rows,
-        #   'tags': tags,
-     }
-    return render(request, 'my_hotel/show_post.html',context)
+def show_post(request,id):
+     rows = Hotels.objects.filter(id=id)
+     tags = Hotels.tags.through.objects.filter(hotels_id=id)
+     context = {
+          'title': rows,
+          'price_econom': rows,
+          'price_standart': rows,
+          'price_business': rows,
+          'content':rows,
+          'photo':rows,
+          'free_places':rows,
+          'id_hotels': rows,
+          'tags': tags,}
+     return render(request, 'my_hotel/show_post.html',context)
 
 
 def end(request,id):
     rows = Hotels.objects.filter(id=id)
+    users = Users.objects.all()
     context ={'title': rows,
+              'price_econom': rows,
+              'price_standart': rows,
+              'price_business': rows,
               'content':rows,
               'photo':rows,
               'free_places':rows,
               'id_hotels': rows,
+              'user':users,
               }
-    return render(request, 'my_hotel/forma.html',context)
+    if request.user.is_authenticated:
+        return render(request, 'my_hotel/forma.html',context,{"is_authenticated": request.user.is_authenticated })
 
+    else:
+        user_form = UserRegistrationForm()
+        return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
 
 def user_login(request):
     if request.method == 'POST':
