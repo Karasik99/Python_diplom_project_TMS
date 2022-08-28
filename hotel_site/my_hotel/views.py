@@ -14,30 +14,6 @@ def preview(request):
      return render(request, 'my_hotel/preview.html')
 
 
-def countries(request):
-     rows = Country.objects.all()
-     country_name = {'title': rows}
-     return render(request, 'my_hotel/choosecountry.html', country_name)
-
-
-def show_cities_Turkey(request):
-     city_turkey = City.objects.filter(country_id=1)
-     city_name = {'title': city_turkey}
-     return render(request, 'my_hotel/choosecity.html', city_name)
-
-
-def show_cities_Ukraine(request):
-     city_ukraine = City.objects.filter(country_id=2)
-     city_name = {'title': city_ukraine}
-     return render(request, 'my_hotel/choosecity.html', city_name)
-
-
-def show_cities_Egipt(request):
-     city_egipt = City.objects.filter(country_id=3)
-     city_name = {'title': city_egipt}
-     return render(request, 'my_hotel/choosecity.html', city_name)
-
-
 def show_hotels(request):
     rows = Hotels.objects.all()
     country = Country.objects.all()
@@ -84,12 +60,16 @@ def end(request,id):
               'id_hotels': rows,
               'user':users,
               }
-    if request.user.is_authenticated:
-        return render(request, 'my_hotel/forma.html',context,{"is_authenticated": request.user.is_authenticated })
 
+    if request.user.is_authenticated:
+                return render(request, 'my_hotel/new_forma.html',context)
     else:
         user_form = UserRegistrationForm()
         return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
+
+
+
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -119,24 +99,6 @@ def register(request):
     return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
 
 
-def user_logout(request):
-    logout(request)
-    return redirect("Login")
-
-
-def register(request):
-    if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            new_user = user_form.save()
-            login(request, new_user)
-            Users.objects.create(name_user = new_user.username,
-                                 email_user = new_user.email)
-
-            return render(request, 'my_hotel/preview.html', {'user_form': user_form})
-    else:
-        user_form = UserRegistrationForm()
-    return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
 
 
 def user_logout(request):

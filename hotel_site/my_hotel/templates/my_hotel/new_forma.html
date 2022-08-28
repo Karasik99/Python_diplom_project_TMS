@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="my_hotel/static/css/login/login_style.css">
+	  	<link rel="stylesheet" href="my_hotel/static/css/style.css">
+	<header class="header" id="header">
+		<div class="container">
+			<div class="header__inner">
+				<div class="header__logo" data-scroll="#intro">MyHotels</div>
+
+				<nav class="nav" id="nav">
+					<a class="nav__link" href="Home">Главная</a>
+					<a class="nav__link" href="Choose_countries">Отели</a>
+					<a class="nav__link" href="Login" >Войти</a>
+					<a class="nav__link" href="Register" >Регистрация</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+	</head>
+
+	<body class="img js-fullheight" style="background-image: url(my_hotel/static/imageslogin/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register</h2>
+				</div>
+        </div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Create Your Account</h3>
+						{% csrf_token %}
+		      	<form action="/hotels" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="form" style="padding: 7px;">
+					{% csrf_token %}
+
+            <div class="u-form-group u-form-group-1">
+              <label for="text-561e" class="u-label">Отель в который летишь</label>
+              {%for row in title%}
+              <input type="text" placeholder="{{row.title}}" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+              {%endfor%}
+            </div>
+            <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-2">
+              <label for="date-4b67" class="u-label">Дата вылета</label>
+              <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-4b67" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-3">
+              <label for="date-f49a" class="u-label">Дата Прибытия обратно</label>
+              <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-f49a" name="date-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-group u-form-name">
+              <label for="name-5922" class="u-label">Имя</label>
+              {% if request.user.is_authenticated %}
+              <input type="text" placeholder="Ваше имя {{ user.username }}" id="name-5922" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              {% endif %}
+            </div>
+            <div class="u-form-email u-form-group u-form-group-5">
+              <label for="email-4ed9" class="u-label">Эл. почта</label>
+              <input type="email" placeholder="email адрес" id="email-4ed9" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-group u-form-radiobutton u-form-group-7">
+              <div class="u-form-radio-button-wrapper">
+                <input type="radio" name="radiobutton" value="Эконом">
+                <label class="u-label" for="radiobutton">Эконом</label>
+                <br>
+                <input type="radio" name="radiobutton" value="Стандарт">
+                <label class="u-label" for="radiobutton">Стандарт</label>
+                <br>
+                <input type="radio" name="radiobutton" value="Бизнес">
+                <label class="u-label" for="radiobutton">Бизнес</label>
+                <br>
+              </div>
+            </div>
+					<div class="form-group">
+						<button type="submit" class="form-control btn btn-primary submit px-3">Отправить</button>
+					</div>
+					</form>
+	</section>
+
+	<script src="my_hotel/static/js/js_login/jquery.min.js"></script>
+	<script src="my_hotel/static/js/js_login/popper.js"></script>
+	<script src="my_hotel/static/js/js_login/bootstrap.min.js"></script>
+	<script src="my_hotel/static/js/js_login/main.js"></script>
+
+	</body>
+</html>
+

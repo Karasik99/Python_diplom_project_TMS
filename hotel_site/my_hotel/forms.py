@@ -22,12 +22,5 @@ class UserLoginForm(AuthenticationForm):
     #     model = User
     #     fields = ['username','password']
 
-
-class FilterForm(forms.Form):
-    search = forms.CharField(label='Поиск', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    tags = forms.MultipleChoiceField(label='Логин',)
-    countries = forms.MultipleChoiceField(label='Пароль',)
-
-
 class LoginForm:
     pass

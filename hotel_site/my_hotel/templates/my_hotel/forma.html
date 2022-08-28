@@ -31,7 +31,7 @@
             <div class="u-form-group u-form-group-1">
               <label for="text-561e" class="u-label">Отель в который летишь</label>
               {%for row in title%}
-              <input type="text.basicAutoComplete.autoComplete" placeholder="{{row.title}}" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+              <input type="text" placeholder="{{row.title}}" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
               {%endfor%}
             </div>
             <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-2">
@@ -84,7 +84,10 @@
             <div class="u-layout-row">
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-right-cell u-size-60 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <h1 class="u-text u-title u-text-1" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">87</h1>
+                  {%for row in title%}
+                  <h1 class="u-text u-title u-text-1" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">
+                    {{row.free_places}}</h1>
+                  {%endfor%}
                   <p class="u-text u-text-2">осталось свободных номеров</p>
                 </div>
               </div>
