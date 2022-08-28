@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from django.views.generic import ListView
 from .models import *
-from .forms import UserRegistrationForm, UserLoginForm
+from .forms import UserRegistrationForm, UserLoginForm, ContactForm
 from django.contrib.auth import login, logout
 from django.views.generic import ListView
 from django.core.paginator import Paginator
@@ -40,32 +40,38 @@ def show_post(request,id):
           'price_standart': rows,
           'price_business': rows,
           'content':rows,
-          'photo':rows,
-          'free_places':rows,
+          'photo': rows,
+          'free_places': rows,
           'id_hotels': rows,
-          'tags': tags,}
+          'tags': tags,
+     }
      return render(request, 'my_hotel/show_post.html',context)
 
 
-def end(request,id):
-    rows = Hotels.objects.filter(id=id)
-    users = Users.objects.all()
-    context ={'title': rows,
-              'price_econom': rows,
-              'price_standart': rows,
-              'price_business': rows,
-              'content':rows,
-              'photo':rows,
-              'free_places':rows,
-              'id_hotels': rows,
-              'user':users,
+def bookinghotels(request):
+    rows = Hotels.objects.all()
+    context = {
+        'title': rows,
+        'price_econom': rows,
+        'price_standart': rows,
+        'price_business': rows,
+        'content':rows,
+        'photo':rows,
+        'free_places':rows,
+        'id_hotels': rows,
               }
-
+    if request.method == 'POST':
+        user_form = UserLoginForm(data=request.POST)
+        if user_form.is_valid():
+            print(user_form)
+            new_user = user_form.get_user()
+            login(request,new_user)
+            return redirect('Home')
     if request.user.is_authenticated:
-                return render(request, 'my_hotel/new_forma.html',context)
+        return render(request, 'my_hotel/new_forma.html',context)
     else:
-        user_form = UserRegistrationForm()
-        return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
+        user_form = UserLoginForm()
+        return render(request,'my_hotel/auth/login.html',{'user_form': user_form})
 
 
 

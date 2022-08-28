@@ -22,5 +22,15 @@ class UserLoginForm(AuthenticationForm):
     #     model = User
     #     fields = ['username','password']
 
+
+class ContactForm(forms.Form):
+    hotel = forms.CharField(label='Отель', widget=forms.TextInput(attrs={'placeholder': 'Отель в который летишь'}))
+    name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'placeholder': 'E-mail'}))
+    datastart = forms.DateField(label='дата вылета')
+    dataend = forms.DateField(label='дата прилета')
+    # class Meta:
+    #     model = User
+    #     fields = ['username','password']
 class LoginForm:
     pass

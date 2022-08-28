@@ -15,7 +15,7 @@ urlpatterns = [
     # path('country.Египет', views.show_cities_Egipt),
     path('hotels', views.show_hotels),
     path('hotel.<int:id>', views.show_post),
-    path('buy.<int:id>', views.end),
+    path('booking', views.bookinghotels),
 
 
 

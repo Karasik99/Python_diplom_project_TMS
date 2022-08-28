@@ -13,42 +13,48 @@
 		<link rel="stylesheet" href="my_hotel/static/css/login/login_style.css">
 	  	<link rel="stylesheet" href="my_hotel/static/css/style.css">
 	<header class="header" id="header">
-		<div class="container">
-			<div class="header__inner">
-				<div class="header__logo" data-scroll="#intro">MyHotels</div>
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo" data-scroll="#intro">MyHotels</div>
 
-				<nav class="nav" id="nav">
-					<a class="nav__link" href="Home">Главная</a>
-					<a class="nav__link" href="Choose_countries">Отели</a>
-					<a class="nav__link" href="Login" >Войти</a>
-					<a class="nav__link" href="Register" >Регистрация</a>
-				</nav>
-			</div>
-		</div>
-	</header>
-	</head>
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="Home">Главная</a>
+                <a class="nav__link" href="hotels">Отели</a>
+                {% if request.user.is_authenticated %}
+                    <b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
+                {%else%}
+                    <a class="nav__link" href="Login" >Войти</a>
+                    <a class="nav__link" href="Register" >Регистрация</a>
+                {% endif %}
 
-	<body class="img js-fullheight" style="background-image: url(my_hotel/static/imageslogin/bg.jpg);">
+            </nav>
+        </div>
+    </div>
+</header>
+
+	<body class="img js-fullheight" style="background-image: url(my_hotel/static/images/1221.jpeg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Register</h2>
+					<h2 class="heading-section">Бронирование Отеля</h2>
 				</div>
         </div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Create Your Account</h3>
-						{% csrf_token %}
-		      	<form action="/hotels" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="form" style="padding: 7px;">
+		      	<h3 class="mb-4 text-center">Create and Travel</h3>
+		      	<form action="" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="ContactForm" id="ContactForm" style="padding: 7px;">
 					{% csrf_token %}
-
             <div class="u-form-group u-form-group-1">
               <label for="text-561e" class="u-label">Отель в который летишь</label>
-              {%for row in title%}
-              <input type="text" placeholder="{{row.title}}" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
-              {%endfor%}
+<!--              <input type="text" placeholder="отель" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">-->
+				<select name="theme" required="required">
+					<option value="">Выберите вариант</option>
+					{% for row in title %}
+					<option>{{row.title}}</option>
+					{%endfor%}
+				  </select>
             </div>
             <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-2">
               <label for="date-4b67" class="u-label">Дата вылета</label>
@@ -62,11 +68,13 @@
               <label for="name-5922" class="u-label">Имя</label>
               {% if request.user.is_authenticated %}
               <input type="text" placeholder="Ваше имя {{ user.username }}" id="name-5922" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-              {% endif %}
+				{% endif %}
             </div>
             <div class="u-form-email u-form-group u-form-group-5">
               <label for="email-4ed9" class="u-label">Эл. почта</label>
-              <input type="email" placeholder="email адрес" id="email-4ed9" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+				{% if request.user.is_authenticated %}
+              <input type="email" placeholder="{{ user.email }}" id="email-4ed9" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+				{% endif %}
             </div>
             <div class="u-form-group u-form-radiobutton u-form-group-7">
               <div class="u-form-radio-button-wrapper">

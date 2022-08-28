@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <title>Отели</title>
     <link rel="stylesheet" href="my_hotel/static/css/nicepage_new_hotels.css" media="screen">
+    <link rel="stylesheet" href="my_hotel/static/css/style.css">
     <link rel="stylesheet" href="my_hotel/static/css/new_hotels.css" media="screen">
     <script class="u-script" type="text/javascript" src="my_hotel/static/js/jquery_new_hotels.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="my_hotel/static/js/nicepage_new_hotels.js" "="" defer=""></script>
@@ -25,6 +26,25 @@
   <body class="u-body u-overlap u-overlap-contrast u-overlap-transparent u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-c67f"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-clearfix u-image u-section-1" src="" id="sec-59a1">
       <div class="u-clearfix u-sheet u-sheet-1">
+          <header class="header" id="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo" data-scroll="#intro">MyHotels</div>
+
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="Home">Главная</a>
+                <a class="nav__link" href="hotels">Отели</a>
+                {% if request.user.is_authenticated %}
+                    <b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
+                {%else%}
+                    <a class="nav__link" href="Login" >Войти</a>
+                    <a class="nav__link" href="Register" >Регистрация</a>
+                {% endif %}
+
+            </nav>
+        </div>
+    </div>
+</header>
         <h1 class="u-text u-text-body-alt-color u-title u-text-1">Отели</h1>
         <p class="u-large-text u-text u-text-body-alt-color u-text-variant u-text-2">Here are my favorite travel and adventure quotes, paired with img from my journeys around the world. </p>
       </div>
