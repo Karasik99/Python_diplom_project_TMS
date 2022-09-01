@@ -48,33 +48,75 @@ def show_post(request,id):
      return render(request, 'my_hotel/show_post.html',context)
 
 
-def bookinghotels(request):
-    rows = Hotels.objects.all()
-    context = {
-        'title': rows,
-        'price_econom': rows,
-        'price_standart': rows,
-        'price_business': rows,
-        'content':rows,
-        'photo':rows,
-        'free_places':rows,
-        'id_hotels': rows,
-              }
+def bookinghotels(request,id):
+    submitbutton= request.POST.get("submit")
+    firstname=''
+    emailvalue=''
+    date_start=''
+    data_end=''
     if request.method == 'POST':
-        user_form = UserLoginForm(data=request.POST)
-        if user_form.is_valid():
-            print(user_form)
-            new_user = user_form.get_user()
-            login(request,new_user)
-            return redirect('Home')
-    if request.user.is_authenticated:
-        return render(request, 'my_hotel/new_forma.html',context)
+        form = ContactForm(data=request.POST)
+        if form.is_valid():
+            ticket = form.save()
+            Ticket.objects.create(name_user = ticket.first_name,
+                                  email_user = ticket.email,
+                                  time_go = ticket.date_start,
+                                  time_back=ticket.data_end)
+            return render(request, 'my_hotel/preview.html', {'form': form})
+
+
+            # firstname= form.cleaned_data.get("first_name")
+            # emailvalue= form.cleaned_data.get("email")
+            # date_start = form.cleaned_data.get("date_start")
+            # data_end = form.cleaned_data.get("dataend")
+            # context= {'form': form,
+            #           'firstname': firstname,
+            #           'submitbutton': submitbutton,
+            #           'emailvalue':emailvalue,
+            #           'date_start': date_start,
+            #           'data_end': data_end,
+            #           }
+            # return render(request, 'my_hotel/preview.html', context)
+        else:
+            form= ContactForm(request.POST)
+            return render(request,'my_hotel/preview.html', {'form': form,
+                          'firstname': firstname,
+                          'submitbutton': submitbutton,
+                          'emailvalue':emailvalue,
+                          'date_start': date_start,
+                          'data_end': data_end,
+                          })
     else:
-        user_form = UserLoginForm()
-        return render(request,'my_hotel/auth/login.html',{'user_form': user_form})
+        form= ContactForm()
+        return render(request,'my_hotel/new_forma.html', {'form': form,
+                      'firstname': firstname,
+                      'submitbutton': submitbutton,
+                      'emailvalue':emailvalue,
+                      'date_start': date_start,
+                      'data_end': data_end,
+                      })
+
+    # rows = Hotels.objects.filter(id=id)
+    # data = {
+    #     'title': rows,
+    #     'price_econom': rows,
+    #     'price_standart': rows,
+    #     'price_business': rows,
+    #     'content':rows,
+    #     'photo':rows,
+    #     'free_places':rows,
+    #     'id_hotels': rows,
+    #           }
+    # if request.user.is_authenticated:
+    #     form = ContactForm(data=request.POST)
+    #     return render(request, 'my_hotel/new_forma.html',{'form': form})
+    # else:
+    #     user_form = UserLoginForm()
+    #     return render(request,'my_hotel/auth/login.html',{'user_form': user_form})
 
 
-
+def pay(request,id):
+    return render(request, 'my_hotel/new_hotels-test.html',)
 
 
 def user_login(request):

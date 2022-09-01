@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="my_hotel/static/css/login/login_style.css">
+      <link rel="stylesheet" href="my_hotel/static/css/style.css">
+<!--    <link rel="stylesheet" href="my_hotel/static/css/niceforma.css" media="screen">-->
+      <script class="u-script" type="text/javascript" src="my_hotel/static/js/forma.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="my_hotel/static/js/nicepage_forma.js" "="" defer=""></script>
 
-		<link rel="stylesheet" href="my_hotel/static/css/login/login_style.css">
-	  	<link rel="stylesheet" href="my_hotel/static/css/style.css">
 	<header class="header" id="header">
     <div class="container">
         <div class="header__inner">
@@ -32,68 +34,114 @@
     </div>
 </header>
 
-	<body class="img js-fullheight" style="background-image: url(my_hotel/static/images/1221.jpeg);">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Бронирование Отеля</h2>
-				</div>
+<body class="img js-fullheight" style="background-image: url(my_hotel/static/images/1221.jpeg);">
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Бронирование Отеля</h2>
+            </div>
+    </div>
+    </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Create and Travel</h3>
+            <form action="" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="ContactForm" id="ContactForm" style="padding: 7px;">
+                {% csrf_token %}
+                {{ form.as_p }}
+<!--        <div class="u-form-group u-form-group-1">-->
+<!--          <label for="text-561e" class="u-label">Отель в который летишь</label>-->
+<!--&lt;!&ndash;              <input type="text" placeholder="отель" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">&ndash;&gt;-->
+<!--            <select name="theme" required="required">-->
+<!--                <option value="">Выберите вариант</option>-->
+<!--                {% for row in title %}-->
+<!--                <option>{{row.title}}</option>-->
+<!--                {%endfor%}-->
+<!--              </select>-->
+<!--        </div>-->
+<!--        <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-2">-->
+<!--          <label for="date-4b67" class="u-label">Дата вылета</label>-->
+<!--          <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-4b67" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+<!--        </div>-->
+<!--        <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-3">-->
+<!--          <label for="date-f49a" class="u-label">Дата Прибытия обратно</label>-->
+<!--          <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-f49a" name="date-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+<!--        </div>-->
+<!--        <div class="u-form-group u-form-name">-->
+<!--          <label for="name-5922" class="u-label">Имя</label>-->
+<!--          {% if request.user.is_authenticated %}-->
+<!--          <input type="text" placeholder="Ваше имя {{ user.username }}" id="name-5922" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--        <div class="u-form-email u-form-group u-form-group-5">-->
+<!--          <label for="email-4ed9" class="u-label">Эл. почта</label>-->
+<!--            {% if request.user.is_authenticated %}-->
+<!--          <input type="email" placeholder="{{ user.email }}" id="email-4ed9" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--        <div class="u-form-group u-form-radiobutton u-form-group-7">-->
+<!--          <div class="u-form-radio-button-wrapper">-->
+<!--            <input type="radio" name="radiobutton" value="Эконом">-->
+<!--              {% for row in price_econom %}-->
+<!--            <label class="u-label" for="radiobutton">Эконом {% if row.price_econom%}{{row.price_econom}}{%endif%}</label>-->
+<!--                {%endfor%}-->
+<!--            <br>-->
+<!--            <input type="radio" name="radiobutton" value="Стандарт">-->
+<!--            <label class="u-label" for="radiobutton">Стандарт</label>-->
+<!--            <br>-->
+<!--            <input type="radio" name="radiobutton" value="Бизнес">-->
+<!--            <label class="u-label" for="radiobutton">Бизнес</label>-->
+<!--            <br>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div class="form-group">
+<!--            <button type="submit" class="form-control btn btn-primary submit px-3" name="submit" value="Submit">Отправить</button>-->
+<!--              <a href="{%for row in title %}pay.{{row.id}}{%endfor %}" class="u-btn u-btn-submit u-button-style u-btn-1">Отправить</a>-->
+              <input type="submit" value="submit" name="Submit" class="u-form-control-hidden">
         </div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Create and Travel</h3>
-		      	<form action="" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="ContactForm" id="ContactForm" style="padding: 7px;">
-					{% csrf_token %}
-            <div class="u-form-group u-form-group-1">
-              <label for="text-561e" class="u-label">Отель в который летишь</label>
-<!--              <input type="text" placeholder="отель" id="text-561e" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">-->
-				<select name="theme" required="required">
-					<option value="">Выберите вариант</option>
-					{% for row in title %}
-					<option>{{row.title}}</option>
-					{%endfor%}
-				  </select>
-            </div>
-            <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-2">
-              <label for="date-4b67" class="u-label">Дата вылета</label>
-              <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-4b67" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-3">
-              <label for="date-f49a" class="u-label">Дата Прибытия обратно</label>
-              <input type="date" placeholder="ММ/ДД/ГГГГ" id="date-f49a" name="date-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            <div class="u-form-group u-form-name">
-              <label for="name-5922" class="u-label">Имя</label>
-              {% if request.user.is_authenticated %}
-              <input type="text" placeholder="Ваше имя {{ user.username }}" id="name-5922" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-				{% endif %}
-            </div>
-            <div class="u-form-email u-form-group u-form-group-5">
-              <label for="email-4ed9" class="u-label">Эл. почта</label>
-				{% if request.user.is_authenticated %}
-              <input type="email" placeholder="{{ user.email }}" id="email-4ed9" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-				{% endif %}
-            </div>
-            <div class="u-form-group u-form-radiobutton u-form-group-7">
-              <div class="u-form-radio-button-wrapper">
-                <input type="radio" name="radiobutton" value="Эконом">
-                <label class="u-label" for="radiobutton">Эконом</label>
-                <br>
-                <input type="radio" name="radiobutton" value="Стандарт">
-                <label class="u-label" for="radiobutton">Стандарт</label>
-                <br>
-                <input type="radio" name="radiobutton" value="Бизнес">
-                <label class="u-label" for="radiobutton">Бизнес</label>
-                <br>
-              </div>
-            </div>
-					<div class="form-group">
-						<button type="submit" class="form-control btn btn-primary submit px-3">Отправить</button>
-					</div>
-					</form>
-	</section>
+        </form>
+        {% if submitbutton == "Submit" %}
+        <h1>Your first name is {{ firstname }}</h1>
+        <h1>Your email is {{ emailvalue }}</h1>
+        <h1>Your data is {{ date_start }}</h1>
+        <h1>Your data is {{ data_end }}</h1>
+        {% endif %}
+        <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+    </div>
+<!--    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+<!--<input type="hidden" name="cmd" value="_s-xclick">-->
+<!--<input type="hidden" name="hosted_button_id" value="YQNBVNLRWDUMA">-->
+<!--<table>-->
+<!--<tr><td><input type="hidden" name="on0" value="Price Hotels">Price Hotels</td></tr><tr><td><select name="os0">-->
+<!--	<option value="Economy Room">Economy Room $10.00 USD</option>-->
+<!--	<option value="Standart Room">Standart Room $15.00 USD</option>-->
+<!--	<option value="Bisiness Room">Bisiness Room $20.00 USD</option>-->
+<!--</select> </td></tr>-->
+<!--</table>-->
+<!--<input type="hidden" name="currency_code" value="USD">-->
+<!--<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">-->
+<!--<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">-->
+<!--</form>-->
+
+<!--        <div class="u-clearfix u-layout-wrap u-layout-wrap-1">-->
+<!--          <div class="u-gutter-0 u-layout">-->
+<!--            <div class="u-layout-row">-->
+<!--              <div class="u-align-center u-container-style u-layout-cell u-left-cell u-right-cell u-size-60 u-layout-cell-1">-->
+<!--                <div class="u-container-layout u-valign-middle u-container-layout-1">-->
+<!--                  {%for row in title%}-->
+<!--                  <h1 class="u-text u-title u-text-1" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">-->
+<!--                    {{row.free_places}}</h1>-->
+<!--                  {%endfor%}-->
+<!--                  <p class="u-text u-text-2">осталось свободных номеров</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </section>
 
 	<script src="my_hotel/static/js/js_login/jquery.min.js"></script>
 	<script src="my_hotel/static/js/js_login/popper.js"></script>
