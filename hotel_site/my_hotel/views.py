@@ -5,9 +5,7 @@ from .models import *
 from .forms import UserRegistrationForm, UserLoginForm, ContactForm
 from django.contrib.auth import login, logout
 from django.views.generic import ListView
-from django.core.paginator import Paginator
-import json
-
+from django.views.generic.edit import FormView
 
 
 def preview(request):
@@ -60,34 +58,21 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
-#
-# Ticket.objects.create(name_user = booking.name_user,
-#                                   email_user = booking.email_user,
-#                                   time_go = booking.time_go,
-#                                   time_back= booking.time_back)
+
 # return render(request, 'my_hotel/preview.html', {'form': form})
 
 
 def bookinghotels(request,id):
     if request.method == 'POST':
         form = ContactForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
-            obj = Ticket()
-            obj.name_user_ticket = form.cleaned_data['name_user_ticket']
-            obj.email_user_ticket = form.cleaned_data['email_user_ticket']
-            obj.time_go = form.cleaned_data['time_go']
-            obj.time_back = form.cleaned_data['time_back']
-            obj.save()
-            Ticket.objects.create(name_user = obj.name_user_ticket,
-                                  email_user = obj.email_user_ticket,
-                                  time_go = obj.time_go,
-                                  time_back= obj.time_back)
-
-        else:
+            form.save()
             return redirect('/')
+
     else:
         form = ContactForm(request.POST)
-    return render(request, 'my_hotel/new_forma.html', {'form': form})
+    return render(request, 'my_hotel/testforma.html', {'form': form})
 
     # rows = Hotels.objects.filter(id=id)
     # data = {
@@ -108,16 +93,12 @@ def bookinghotels(request,id):
     #     return render(request,'my_hotel/auth/login.html',{'user_form': user_form})
 
 
-def pay(request,id):
-    return render(request, 'my_hotel/new_hotels-test.html',)
-
-
 def user_login(request):
     if request.method == 'POST':
         user_form = UserLoginForm(data=request.POST)
         if user_form.is_valid():
             new_user = user_form.get_user()
-            login(request,new_user)
+            login(request, new_user)
             return redirect('Home')
 
     else:

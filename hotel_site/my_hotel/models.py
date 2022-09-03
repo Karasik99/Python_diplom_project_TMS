@@ -62,5 +62,11 @@ class Users(models.Model):
 class Ticket(models.Model):
     name_user_ticket = models.CharField(max_length=30, verbose_name='Имя')
     email_user_ticket = models.EmailField(max_length=30, verbose_name='Email')
-    time_go = models.DateField(verbose_name='Дата Вылета',)
-    time_back = models.DateField(verbose_name='Дата Прилета')
+    time_go = models.DateField(verbose_name='Дата вылета',)
+    time_back = models.DateField(verbose_name='Дата прилета',)
+    CHOOSE = [
+        (1, 'Эконом Вариант'),
+        (2, 'Стандартный Номер'),
+        (3, 'Бизнес люкс'),
+    ]
+    choose = models.PositiveSmallIntegerField( ("choose"), choices=CHOOSE,blank=False,default=1)

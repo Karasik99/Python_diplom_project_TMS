@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Booking Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="my_hotel/static/css/login/login_style.css">
+	  	<link rel="stylesheet" href="my_hotel/static/css/style.css">
+	<header class="header" id="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo" data-scroll="#intro">MyHotels</div>
+
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="Home">Главная</a>
+                <a class="nav__link" href="hotels">Отели</a>
+                {% if request.user.is_authenticated %}
+                    <b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
+                {%else%}
+                    <a class="nav__link" href="Login" >Войти</a>
+                    <a class="nav__link" href="Register" >Регистрация</a>
+                {% endif %}
+
+            </nav>
+        </div>
+    </div>
+</header>
+	<body class="img js-fullheight" style="background-image: url(my_hotel/static/images/1221.jpeg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Booking Page</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Booking and travel</h3>
+				<div class="form-group">
+		      		<form action="" method="post">
+
+					{{ form.as_p }}
+					{% csrf_token %}
+<!--		      		<div class="form-group">-->
+<!--		      			<input id="username" type="text" class="form-control" placeholder="Username" required>-->
+<!--		      		</div>-->
+<!--	            <div class="form-group">-->
+<!--	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>-->
+<!--	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>-->
+<!--	            </div>-->
+
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Забронировать</button>
+					</form>
+	            </div>
+
+	</section>
+
+	<script src="my_hotel/static/js/js_login/jquery.min.js"></script>
+	<script src="my_hotel/static/js/js_login/popper.js"></script>
+	<script src="my_hotel/static/js/js_login/bootstrap.min.js"></script>
+	<script src="my_hotel/static/js/js_login/main.js"></script>
+
+	</body>
+</html>
+
