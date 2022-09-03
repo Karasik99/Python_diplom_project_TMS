@@ -29,27 +29,22 @@ class UserLoginForm(AuthenticationForm):
 
 class ContactForm(forms.Form):
     # hotel = forms.CharField(label='Отель', widget=forms.TextInput(attrs={'placeholder': 'Отель в который летишь'}))
-    first_name = forms.CharField(label='Имя', widget=forms.TextInput(
-        attrs={'placeholder': 'Ваше имя', 'class': 'form-control datetimepicker-input'}))
-    email = forms.EmailField(label='Email', widget=forms.EmailInput(
-        attrs={'placeholder': 'E-mail', 'class': 'form-control datetimepicker-input'}))
-    date_start = forms.DateTimeField(label='дата вылета', input_formats=['%d/%m/%Y %H:%M'], widget=forms.DateTimeInput(
-        attrs={'placeholder': 'ММ/ДД/ГГГГ', 'class': 'form-control datetimepicker-input',
-               'data-target': '#datetimepicker1',
-               'type': 'date'}))
-    data_end = forms.DateField(label='дата прилета',
-                              input_formats=['%d/%m/%Y %H:%M'],
-                              widget=forms.DateTimeInput(attrs={'placeholder': 'ММ/ДД/ГГГГ',
-                                                                'class': 'form-control datetimepicker-input',
-                                                                'data-target': '#datetimepicker1',
-                                                                'type': 'date'
-                                                                }))
+    name_user_ticket = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class': 'form-control datetimepicker-input'}))
+    email_user_ticket = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'placeholder': 'E-mail', 'class': 'form-control datetimepicker-input'}))
+    time_go = forms.DateField(label='Дата Вылета', input_formats=['%d/%m/%Y'],widget=forms.DateInput(attrs={
+                                                                                                               'class': 'form-control datetimepicker-input',
+                                                                                                               'data-target': '#datetimepicker1',
+                                                                                                               'type': 'date'}))
+    time_back = forms.DateField(label='Дата Прилета', input_formats=['%d/%m/%Y'], widget=forms.DateInput(attrs={
+                                                                                                               'class': 'form-control datetimepicker-input',
+                                                                                                               'data-target': '#datetimepicker1',
+                                                                                                               'type': 'date'}))
+
+    def save(self, *args, **kwargs):
+        super(ContactForm, self).save(*args, **kwargs)
     # class Meta:
     #     model = User
     #     fields = ['username','password']
-    def save(self):
-        pass
-
 
 class LoginForm:
     pass

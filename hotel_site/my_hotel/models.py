@@ -60,7 +60,7 @@ class Users(models.Model):
         return self.name_user
 
 class Ticket(models.Model):
-    name_user = models.CharField(max_length=30, verbose_name='Имя')
-    email_user = models.EmailField(max_length=30, verbose_name='Email')
-    time_go = models.DateField(verbose_name='Дата Вылета')
+    name_user_ticket = models.CharField(max_length=30, verbose_name='Имя')
+    email_user_ticket = models.EmailField(max_length=30, verbose_name='Email')
+    time_go = models.DateField(verbose_name='Дата Вылета',)
     time_back = models.DateField(verbose_name='Дата Прилета')

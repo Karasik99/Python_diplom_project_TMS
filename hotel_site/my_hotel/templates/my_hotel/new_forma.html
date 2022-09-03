@@ -47,7 +47,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
             <h3 class="mb-4 text-center">Create and Travel</h3>
-            <form action="" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" source="email" name="ContactForm" id="ContactForm" style="padding: 7px;">
+            <form action="" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" name="ContactForm" id="ContactForm" style="padding: 7px;">
                 {% csrf_token %}
                 {{ form.as_p }}
 <!--        <div class="u-form-group u-form-group-1">-->
@@ -102,14 +102,14 @@
               <input type="submit" value="submit" name="Submit" class="u-form-control-hidden">
         </div>
         </form>
-        {% if submitbutton == "Submit" %}
-        <h1>Your first name is {{ firstname }}</h1>
-        <h1>Your email is {{ emailvalue }}</h1>
-        <h1>Your data is {{ date_start }}</h1>
-        <h1>Your data is {{ data_end }}</h1>
-        {% endif %}
-        <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
-    </div>
+<!--        {% if submitbutton == "Submit" %}-->
+<!--        <h1>Your first name is {{ firstname }}</h1>-->
+<!--        <h1>Your email is {{ emailvalue }}</h1>-->
+<!--        <h1>Your data is {{ date_start }}</h1>-->
+<!--        <h1>Your data is {{ data_end }}</h1>-->
+<!--        {% endif %}-->
+<!--        <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>-->
+<!--    </div>-->
 <!--    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
 <!--<input type="hidden" name="cmd" value="_s-xclick">-->
 <!--<input type="hidden" name="hosted_button_id" value="YQNBVNLRWDUMA">-->
