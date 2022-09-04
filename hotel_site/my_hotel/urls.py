@@ -12,6 +12,7 @@ urlpatterns = [
     path('hotels', views.show_hotels),
     path('hotel.<int:id>', views.show_post),
     path('booking.<int:id>', views.bookinghotels),
+    path('booking.<int:id>', views.bookinghotels),
 
 
 

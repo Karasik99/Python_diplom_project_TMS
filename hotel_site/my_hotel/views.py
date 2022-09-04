@@ -68,7 +68,7 @@ def bookinghotels(request,id):
         print(form.is_valid())
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('my_hotel/baseblockpay.html')
 
     else:
         form = ContactForm(request.POST)
