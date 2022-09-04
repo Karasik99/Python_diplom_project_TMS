@@ -63,16 +63,29 @@ def register(request):
 
 
 def bookinghotels(request,id):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        print(form.is_valid())
-        if form.is_valid():
-            form.save()
-            return redirect('my_hotel/baseblockpay.html')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            rows = Hotels.objects.filter(id=id)
+            form = ContactForm(request.POST)
+            print(form.is_valid())
+            if form.is_valid():
+                form.save()
+                data = {
+                    'title': rows,
+                    'price_econom': rows,
+                    'price_standart': rows,
+                    'price_business': rows,
+                    'content':rows,
+                    'photo':rows,
+                    'free_places':rows,
+                    'id_hotels': rows,
+                    'form':form,
+                      }
+                return render(request, 'my_hotel/baseblockpay.html',data)
 
-    else:
-        form = ContactForm(request.POST)
-    return render(request, 'my_hotel/testforma.html', {'form': form})
+        else:
+            form = ContactForm(request.POST)
+        return render(request, 'my_hotel/testforma.html', {'form': form})
 
     # rows = Hotels.objects.filter(id=id)
     # data = {

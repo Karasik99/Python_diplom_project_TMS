@@ -77,7 +77,18 @@
       <div style="text-align: center;">
         <div style="margin-bottom: 1.25rem;">
           <p>Оплата Бронирования номера</p>
-          <select id="item-options"><option value="Эконом номер" price="100">Эконом номер - 100 USD</option><option value="Стандартный номер" price="130">Стандартный номер - 130 USD</option><option value="Бизнес люкс " price="150">Бизнес люкс  - 150 USD</option></select>
+          <select id="item-options">
+              {% for row in price_econom%}
+              <option value="Эконом номер" price="{{row.price_econom}}">Эконом номер - {{row.price_econom}} USD</option>
+              {%endfor%}
+              {% for row in price_standart%}
+              <option value="Стандартный номер" price="{{row.price_standart}}">Стандартный номер - {{row.price_standart}} USD</option>
+              {%endfor%}
+              {% for row in price_business%}
+              <option value="Бизнес люкс " price="{{row.price_business}}">Бизнес люкс  - {{row.price_business}} USD</option>
+              {%endfor%}
+
+          </select>
           <select style="visibility: hidden" id="quantitySelect"></select>
         </div>
       <div id="paypal-button-container"></div>
