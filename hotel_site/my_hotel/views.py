@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from django.views.generic import ListView
@@ -6,10 +7,20 @@ from .forms import UserRegistrationForm, UserLoginForm, ContactForm
 from django.contrib.auth import login, logout
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
+from django.http import HttpResponse
+from django.views.generic import View
+from django.template.loader import render_to_string
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
+
 
 
 def preview(request):
-     return render(request, 'my_hotel/preview.html')
+     return render(request, 'my_hotel/last.html')
 
 
 def show_hotels(request):
@@ -59,53 +70,6 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
 
-# return render(request, 'my_hotel/preview.html', {'form': form})
-
-
-def bookinghotels(request,id):
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            rows = Hotels.objects.filter(id=id)
-            form = ContactForm(request.POST)
-            print(form.is_valid())
-            if form.is_valid():
-                form.save()
-                data = {
-                    'title': rows,
-                    'price_econom': rows,
-                    'price_standart': rows,
-                    'price_business': rows,
-                    'content':rows,
-                    'photo':rows,
-                    'free_places':rows,
-                    'id_hotels': rows,
-                    'form':form,
-                      }
-                return render(request, 'my_hotel/baseblockpay.html',data)
-
-        else:
-            form = ContactForm(request.POST)
-        return render(request, 'my_hotel/testforma.html', {'form': form})
-
-    # rows = Hotels.objects.filter(id=id)
-    # data = {
-    #     'title': rows,
-    #     'price_econom': rows,
-    #     'price_standart': rows,
-    #     'price_business': rows,
-    #     'content':rows,
-    #     'photo':rows,
-    #     'free_places':rows,
-    #     'id_hotels': rows,
-    #           }
-    # if request.user.is_authenticated:
-    #     form = ContactForm(data=request.POST)
-    #     return render(request, 'my_hotel/new_forma.html',{'form': form})
-    # else:
-    #     user_form = UserLoginForm()
-    #     return render(request,'my_hotel/auth/login.html',{'user_form': user_form})
-
-
 def user_login(request):
     if request.method == 'POST':
         user_form = UserLoginForm(data=request.POST)
@@ -119,10 +83,76 @@ def user_login(request):
     return render(request,'my_hotel/auth/login.html', {'user_form': user_form})
 
 
+def bookinghotels(request,id):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            rows = Hotels.objects.filter(id=id)
+            form = ContactForm(request.POST)
+            print(form.is_valid())
+            if form.is_valid():
+                form.save()
+                tickets = Ticket.objects.all
+                data = {
+                    'title': rows,
+                    'price_econom': rows,
+                    'price_standart': rows,
+                    'price_business': rows,
+                    'content':rows,
+                    'photo':rows,
+                    'free_places':rows,
+                    'id_hotels': rows,
+                    'form':form,
+                    'name_user_ticket': tickets,
+                    'id': tickets,
+                      }
+                return render(request, 'my_hotel/baseblockpay.html',data)
+
+        else:
+            form = ContactForm(request.POST)
+        return render(request, 'my_hotel/testforma.html', {'form': form})
+
+
+def pdf(request,id1,id2):
+    rows = Hotels.objects.filter(id=id1)
+    forms = Ticket.objects.filter(id=id2)
+    template_path = 'my_hotel/ticket.html'
+    context = {'myvar': 'this is your template NIkita ',
+               'title': rows,
+               'price_econom': rows,
+               'price_standart': rows,
+               'price_business': rows,'content':rows,
+               'photo':rows,
+               'free_places':rows,
+               'id_hotels': rows,
+               'name_user_ticket': forms,
+               'email_user_ticket': forms,
+               'time_go':forms,
+               'time_back':forms,
+               'choose':forms
+               }
+    # Create a Django response object, and specify content_type as pdf
+    #if download:
+    response = HttpResponse(content_type='application/pdf')
+    #if download:
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # if display:
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
+
 def user_logout(request):
     logout(request)
     return redirect("Login")
-
 
 def get_obejct_or_404(Hotels, pk):
      pass

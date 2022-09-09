@@ -87,9 +87,7 @@
           // Show a success message within this page, e.g.
           const element = document.getElementById('paypal-button-container');
           element.innerHTML = '';
-          element.innerHTML = '<h3>Thank you for your payment!</h3>';
-          element.innerHTML = '';
-          element.innerHTML = '<a href="hotels" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2">Продолжить</a>';
+          element.innerHTML = '<a href="pay.{{row.id}}" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2">Продолжить</a>';
 
           // Or go to another URL:  actions.redirect('/');
 

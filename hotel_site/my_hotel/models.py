@@ -70,3 +70,4 @@ class Ticket(models.Model):
         (3, 'Бизнес люкс'),
     ]
     choose = models.PositiveSmallIntegerField( ("choose"), choices=CHOOSE,blank=False,default=1)
+
