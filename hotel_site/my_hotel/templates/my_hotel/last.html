@@ -29,10 +29,14 @@
                             <div class="intro">
                                 <h1>Last step</h1>
                                 <p>All forms are completed, payment was successful.Choose the last step</p>
-                                <a class="btn vira-btn" href="#">Redirect to Home</a>
-                                <a class="btn vira-btn" href="#">View my Ticket</a>
-                                <a class="btn vira-btn" href="#">Donwload Ticket</a>
-                                <a class="btn vira-btn" href="#">Email my Ticket</a>
+                                <a class="btn vira-btn" href="/">Redirect to Home</a>
+                                {%for row in title %}
+                                    {%for name in name_user_ticket %}
+                                        <a class="btn vira-btn" href="pay/{{row.id}}/{{name.id}}">View my Ticket</a>
+                                        <a class="btn vira-btn" href="download/{{row.id}}/{{name.id}}">Donwload Ticket</a>
+                                        <a class="btn vira-btn" href="#">Email my Ticket</a>
+                                    {%endfor%}
+                                {%endfor%}
                             </div>
                         </div>
                     </div>

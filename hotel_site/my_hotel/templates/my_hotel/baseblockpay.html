@@ -175,7 +175,7 @@
           {%for row in title %}
             {%for name in id %}
             element.innerHTML = '';
-            element.innerHTML = '<a href="pay/{{row.id}}/{{name.id}}" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2">Перейти к билету</a>';
+            element.innerHTML = '<a href="last.{{row.id}}.{{name.id}}" class="u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-2">Перейти к билету</a>';
             {%endfor%}
           {%endfor%}
 

@@ -1,3 +1,5 @@
+import string
+from random import random,sample,choice
 
 from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
@@ -20,7 +22,7 @@ from django.contrib.staticfiles import finders
 
 
 def preview(request):
-     return render(request, 'my_hotel/last.html')
+     return render(request, 'my_hotel/preview.html')
 
 
 def show_hotels(request):
@@ -105,22 +107,23 @@ def bookinghotels(request,id):
                     'name_user_ticket': tickets,
                     'id': tickets,
                       }
-                return render(request, 'my_hotel/baseblockpay.html',data)
+                return render(request, 'my_hotel/baseblockpay.html', data)
 
         else:
             form = ContactForm(request.POST)
         return render(request, 'my_hotel/testforma.html', {'form': form})
 
 
-def pdf(request,id1,id2):
+def last(request,id1,id2):
     rows = Hotels.objects.filter(id=id1)
     forms = Ticket.objects.filter(id=id2)
-    template_path = 'my_hotel/ticket.html'
-    context = {'myvar': 'this is your template NIkita ',
-               'title': rows,
+    country = Country.objects.all()
+    city = City.objects.all()
+    context = {'title': rows,
                'price_econom': rows,
                'price_standart': rows,
-               'price_business': rows,'content':rows,
+               'price_business': rows,
+               'content':rows,
                'photo':rows,
                'free_places':rows,
                'id_hotels': rows,
@@ -128,27 +131,64 @@ def pdf(request,id1,id2):
                'email_user_ticket': forms,
                'time_go':forms,
                'time_back':forms,
-               'choose':forms
+               'choose': forms,
                }
-    # Create a Django response object, and specify content_type as pdf
-    #if download:
+    return render(request,'my_hotel/last.html', context)
+
+def pdf(request,id1,id2):
+    rows = Hotels.objects.filter(id=id1)
+    forms = Ticket.objects.filter(id=id2)
+    ticket = Ticket.objects.filter(id=id2)
+    country = Country.objects.all()
+    city = City.objects.all()
+    template_path = 'my_hotel/ticket.html'
+    context = {
+        'title': rows,
+        'id': rows,
+        'id': ticket,
+        'name_user_ticket': forms,
+        'email_user_ticket': forms,
+        'time_go':forms,
+        'time_back':forms,
+        'choose':forms,
+               }
     response = HttpResponse(content_type='application/pdf')
-    #if download:
-    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-    # if display:
-    response['Content-Disposition'] = 'filename="report.pdf"'
-    # find the template and render it.
+    response['Content-Disposition'] = 'filename="ticket.pdf"'
     template = get_template(template_path)
     html = template.render(context)
-    # create a pdf
     pisa_status = pisa.CreatePDF(
        html, dest=response)
-    # if error then show some funny view
     if pisa_status.err:
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
 
+def download(request,id1,id2):
+    rows = Hotels.objects.filter(id=id1)
+    forms = Ticket.objects.filter(id=id2)
+    ticket = Ticket.objects.filter(id=id2)
+    country = Country.objects.all()
+    city = City.objects.all()
+    template_path = 'my_hotel/ticket.html'
+    context = {
+        'title': rows,
+        'id': rows,
+        'id': ticket,
+        'name_user_ticket': forms,
+        'email_user_ticket': forms,
+        'time_go':forms,
+        'time_back':forms,
+        'choose':forms,
+               }
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="ticket.pdf"'
+    template = get_template(template_path)
+    html = template.render(context)
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 def user_logout(request):
     logout(request)
