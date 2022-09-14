@@ -128,3 +128,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "my_hotel/static")]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = ["127.0.0.1"]
+
+EMAIL_HOST = 'smtp.yandex.by'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'companyvira@yandex.by'
+EMAIL_HOST_PASSWORD = 'varenik1999'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+

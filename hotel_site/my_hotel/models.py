@@ -21,7 +21,6 @@ class City(models.Model):
         return reverse("city", kwargs={"city": self.pk})
 
 
-
 class Hotels(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(blank=True, verbose_name='Данные')
@@ -33,7 +32,6 @@ class Hotels(models.Model):
     price_business = models.IntegerField(verbose_name='Цена Бизнеса', default=200)
     city = models.ForeignKey('City', on_delete=models.PROTECT, verbose_name='Город')
     tags = models.ManyToManyField('Tag')
-
 
     def __str__(self):
         return self.title
@@ -55,9 +53,9 @@ class Users(models.Model):
     name_user = models.CharField(max_length=30, verbose_name='Имя')
     email_user = models.EmailField(max_length=30, verbose_name='Email')
 
-
     def __str__(self):
         return self.name_user
+
 
 class Ticket(models.Model):
     name_user_ticket = models.CharField(max_length=30, verbose_name='Имя')
@@ -69,5 +67,5 @@ class Ticket(models.Model):
         (2, 'Стандартный Номер'),
         (3, 'Бизнес люкс'),
     ]
-    choose = models.PositiveSmallIntegerField( ("choose"), choices=CHOOSE,blank=False,default=1)
+    choose = models.PositiveSmallIntegerField(("choose") , choices=CHOOSE,blank=False,default=1)
 

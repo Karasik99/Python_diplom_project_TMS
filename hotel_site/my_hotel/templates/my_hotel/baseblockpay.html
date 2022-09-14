@@ -71,23 +71,21 @@
                   <div class="u-container-style u-layout-cell u-right-cell u-size-40 u-layout-cell-7">
                     <div class="u-container-layout u-valign-top u-container-layout-7">
                       <ol class="u-text u-text-3">
-
                         <li>
                           <div id="smart-button-container">
       <div style="text-align: center;">
         <div style="margin-bottom: 1.25rem;">
           <p>Оплата Бронирования номера</p>
           <select id="item-options">
-              {% for row in price_econom%}
-              <option value="Эконом номер" price="{{row.price_econom}}">Эконом номер - {{row.price_econom}} USD</option>
-              {%endfor%}
-              {% for row in price_standart%}
-              <option value="Стандартный номер" price="{{row.price_standart}}">Стандартный номер - {{row.price_standart}} USD</option>
-              {%endfor%}
-              {% for row in price_business%}
-              <option value="Бизнес люкс " price="{{row.price_business}}">Бизнес люкс  - {{row.price_business}} USD</option>
-              {%endfor%}
-
+                  {% for row in price_econom%}
+                    <option value="Эконом номер" price="{{row.price_econom}}">Эконом номер - {{row.price_econom}} USD</option>
+                  {%endfor%}
+                  {% for row in price_standart%}
+                    <option value="Стандартный номер" price="{{row.price_standart}}">Стандартный номер - {{row.price_standart}} USD</option>
+                  {%endfor%}
+                  {% for row in price_business%}
+                    <option value="Бизнес люкс " price="{{row.price_business}}">Бизнес люкс  - {{row.price_business}} USD</option>
+                  {%endfor%}
           </select>
           <select style="visibility: hidden" id="quantitySelect"></select>
         </div>

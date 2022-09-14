@@ -16,8 +16,5 @@ urlpatterns = [
     path('last.<int:id1>.<int:id2>', views.last),
     path('pay/<int:id1>/<int:id2>', views.pdf,name='pay'),
     path('download/<int:id1>/<int:id2>', views.download,name='pay'),
-
-
-
-
+    path('support.<int:id1>.<int:id2>', views.support, name='support'),
 ]
