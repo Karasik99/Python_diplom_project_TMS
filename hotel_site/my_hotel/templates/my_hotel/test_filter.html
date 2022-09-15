@@ -18,54 +18,36 @@
 	<header class="cd-header">
 		<h1>Content Filters</h1>
 	</header>
-
 	<main class="cd-main-content">
 		<div class="cd-tab-filter-wrapper">
 			<div class="cd-tab-filter">
 				<ul class="cd-filters">
 					<li class="placeholder">
 						<a data-type="all" href="">All</a> <!-- selected option on mobile -->
-						<!-- selected option on mobile -->
 					</li>
 					<li class="filter"><a class="selected" href="#" data-type="all">Full list of Hotels</a></li>
-<!--					<li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>-->
-<!--					<li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>-->
-<!--					<li class="filter" data-filter=".check2"><a href="#0" data-type="check2">Check 1</a></li>-->
 				</ul> <!-- cd-filters -->
 			</div> <!-- cd-tab-filter -->
 		</div> <!-- cd-tab-filter-wrapper -->
-
 		<section class="cd-gallery">
 			<ul>
-					{% for row in rows %}
-						<li class="mix '{{row.title}}' {{row.id}} {{row.city}} {{row.city.country}}
-							 {% for nam in name %}
-									{% if nam.hotels_id == row.id %}
-										 {{nam.tag.tag}}
-									{%endif%}
-							{% endfor %}"><img src="{{row.photo}}" alt="">
-							<p class="u-text u-text-1">{{row.title}}</p>
-							<p class="u-text u-text-1">{{row.city.country}}: {{row.city}}</p>
+				{% for row in rows %}
+					<li class="mix '{{row.title}}' {{row.id}} {{row.city}} {{row.city.country}}
+						{% for nam in name %}
+							{% if nam.hotels_id == row.id %}
+								{{nam.tag.tag}}
+							{%endif%}
+						{% endfor %}"><img src="{{row.photo}}" alt="">
+						<p class="u-text u-text-1">{{row.title}}</p>
+						<p class="u-text u-text-1">{{row.city.country}}: {{row.city}}</p>
 							{% for nam in name %}
 								{% if nam.hotels_id == row.id %}
 <!--								<div style="display: inline-block; background-color: #ffffff; color: #000000;">{{nam.tag.tag}}</div>-->
 								{%endif%}
 							{% endfor %}
-							<a href="hotel.{{row.id}}" class="u-btn u-button-style u-gradient u-text-body-alt-color u-btn-1">Подробнее об отеле&nbsp;<br></a>
-						</li>
-					{% endfor %}
-
-<!--				<li class="mix color-2 check2 radio2 option2"><img src="my_hotel/static/imagesfilter/img-2.jpg" alt="Image 2"></li>-->
-<!--				<li class="mix color-1 check3 radio3 option1"><img src="my_hotel/static/imagesfilter/img-3.jpg" alt="Image 3"></li>-->
-<!--				<li class="mix color-1 check3 radio2 option4"><img src="my_hotel/static/imagesfilter/img-4.jpg" alt="Image 4"></li>-->
-<!--				<li class="mix color-1 check1 radio3 option2"><img src="my_hotel/static/imagesfilter/img-5.jpg" alt="Image 5"></li>-->
-<!--				<li class="mix color-2 check2 radio3 option3"><img src="my_hotel/static/imagesfilter/img-6.jpg" alt="Image 6"></li>-->
-<!--				<li class="mix color-2 check2 radio2 option1"><img src="my_hotel/static/imagesfilter/img-7.jpg" alt="Image 7"></li>-->
-<!--				<li class="mix color-1 check1 radio3 option4"><img src="my_hotel/static/imagesfilter/img-8.jpg" alt="Image 8"></li>-->
-<!--				<li class="mix color-2 check1 radio2 option3"><img src="my_hotel/static/imagesfilter/img-9.jpg" alt="Image 9"></li>-->
-<!--				<li class="mix color-1 check3 radio2 option4"><img src="my_hotel/static/imagesfilter/img-10.jpg" alt="Image 10"></li>-->
-<!--				<li class="mix color-1 check3 radio3 option2"><img src="my_hotel/static/imagesfilter/img-11.jpg" alt="Image 11"></li>-->
-<!--				<li class="mix color-2 check1 radio3 option1"><img src="my_hotel/static/imagesfilter/img-12.jpg" alt="Image 12"></li>-->
+						<a href="hotel.{{row.id}}" class="u-btn u-button-style u-gradient u-text-body-alt-color u-btn-1">More about the hotel<br></a>
+					</li>
+				{% endfor %}
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
@@ -74,20 +56,16 @@
 			</ul>
 			<div class="cd-fail-message">No results found</div>
 		</section> <!-- cd-gallery -->
-
 		<div class="cd-filter">
 			<form>
 				<div class="cd-filter-block">
 					<h4>Choose country,city,hotels or tags</h4>
-
 					<div class="cd-filter-content">
 						<input type="search" placeholder="Поиск...">
 					</div> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
-
 				<div class="cd-filter-block">
 					<h4>List of Countries</h4>
-
 					<ul class="cd-filter-content cd-filters list">
 						{% for country in countries %}
 							<li>
@@ -96,10 +74,8 @@
 						{% endfor %}
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
-
 				<div class="cd-filter-block">
 					<h4>List of Cities</h4>
-
 					<ul class="cd-filter-content cd-filters list">
 						{% for city in cities %}
 							<li>
@@ -108,10 +84,8 @@
 						{% endfor %}
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
-
 				<div class="cd-filter-block">
 					<h4>List of Hotels</h4>
-
 					<ul class="cd-filter-content cd-filters list">
 						{% for row in rows %}
 							<li>
@@ -120,10 +94,8 @@
 						{% endfor %}
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
-
 				<div class="cd-filter-block">
 					<h4>List of Tags</h4>
-
 					<ul class="cd-filter-content cd-filters list">
 						{% for tag in tags %}
 							<li>
@@ -131,57 +103,11 @@
 								<label class="search" for="{{tag.tag}}">{{ tag.tag }}</label>
 							</li>
 						{% endfor %}
-
 					</ul> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
-<!--				<div class="cd-filter-block">-->
-<!--					<h4>Select</h4>-->
-
-<!--						<div class="cd-filter-content">-->
-<!--							<div class="cd-select cd-filters">-->
-<!--								<select class="filter" name="selectThis" id="selectThis">-->
-<!--									<option value="">Choose an option</option>-->
-<!--									{% for tag in tags %}-->
-<!--									<option value="{{tag.tag}}">{{tag}}</option>-->
-<!--									{% endfor %}-->
-<!--	&lt;!&ndash;								<option value=".option2">Option 2</option>&ndash;&gt;-->
-<!--	&lt;!&ndash;								<option value=".option3">Option 3</option>&ndash;&gt;-->
-<!--	&lt;!&ndash;								<option value=".option4">Option 4</option>&ndash;&gt;-->
-<!--								</select>-->
-<!--							</div> &lt;!&ndash; cd-select &ndash;&gt;-->
-<!--						</div> &lt;!&ndash; cd-filter-content &ndash;&gt;-->
-<!--					</div> &lt;!&ndash; cd-filter-block &ndash;&gt;-->
-
-<!--				<div class="cd-filter-block">-->
-<!--					<h4>Cтрана</h4>-->
-
-<!--					<ul class="cd-filter-content cd-filters list">-->
-<!--						{% for country in countries %}-->
-<!--							<li>-->
-<!--								<input class="filter" type="checkbox" id="{{ country.pk }}">-->
-<!--								<label class="checkbox-label" for="checkbox1">{{ country }}</label>-->
-<!--							</li>-->
-<!--						{% endfor %}-->
-<!--					</ul> &lt;!&ndash; cd-filter-content &ndash;&gt;-->
-<!--				</div> &lt;!&ndash; cd-filter-block &ndash;&gt;-->
-
-<!--				{% comment %} <div class="cd-filter-block">-->
-<!--					<h4>Город</h4>-->
-
-<!--					<ul class="cd-filter-content cd-filters list">-->
-<!--						{% for city in cities %}-->
-<!--							<li>-->
-<!--								<input class="filter" type="checkbox" id="{{ city.pk }}">-->
-<!--								<label class="checkbox-label" for="checkbox1">{{ city }}</label>-->
-<!--							</li>-->
-<!--						{% endfor %}-->
-<!--					</ul> &lt;!&ndash; cd-filter-content &ndash;&gt;-->
-<!--				</div> &lt;!&ndash; cd-filter-block &ndash;&gt; {% endcomment %}-->
 			</form>
-
-			<a href="#" class="cd-close">Close</a>
+			<a href="#0" class="cd-close">Close</a>
 		</div> <!-- cd-filter -->
-
 		<a href="#0" class="cd-filter-trigger">Filters</a>
 	</main> <!-- cd-main-content -->
 <script src="my_hotel/static/js/jquery-2.1.1.js"></script>

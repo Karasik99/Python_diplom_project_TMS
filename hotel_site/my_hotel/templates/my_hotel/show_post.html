@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ru"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Nature is pleased with simplicity, 1, 2, 3, 4, 5, 6, The mountainsare calling">
     <meta name="description" content="">
-    <title>MyHotels</title>
+    <title>Vira | Hotel</title>
     <link rel="stylesheet" href="my_hotel/static/css/show_post/nicepage.css" media="screen">
     <link rel="stylesheet" href="my_hotel/static/css/show_post/Страница-1.css" media="screen">
     <link rel="stylesheet" href="my_hotel/static/css/style.css">
@@ -14,14 +13,13 @@
     <meta name="generator" content="Nicepage 4.16.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    
-
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+        {
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "",
-		"url": "/"
-}</script>
+		"url": "/"}
+    </script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Страница 1">
     <meta property="og:type" content="website">
@@ -35,18 +33,16 @@
       <header class="header" id="header">
     <div class="container">
         <div class="header__inner">
-            <div class="header__logo" data-scroll="#intro">MyHotels</div>
-
+            <div class="header__logo" data-scroll="#intro">Vira | Hotel</div>
             <nav class="nav" id="nav">
-                <a class="nav__link" href="Home">Главная</a>
-                <a class="nav__link" href="hotels">Отели</a>
+                <a class="nav__link" href="Home">Home</a>
+                <a class="nav__link" href="hotels">Hotels</a>
                 {% if request.user.is_authenticated %}
                     <b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
                 {%else%}
-                    <a class="nav__link" href="Login" >Войти</a>
-                    <a class="nav__link" href="Register" >Регистрация</a>
+                    <a class="nav__link" href="Login" >Login in</a>
+                    <a class="nav__link" href="Register" >Sign up</a>
                 {% endif %}
-
             </nav>
         </div>
     </div>
@@ -60,11 +56,8 @@
         <div class="u-gallery-inner u-gallery-inner-1">
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1280" data-image-height="719">
-
                 <img class="u-back-image u-expanded" src="{{one_photo}}">
-
             </div>
-
             <div class="u-over-slide u-shading u-over-slide-1">
               <h3 class="u-gallery-heading"></h3>
               <p class="u-gallery-text"></p>
@@ -72,9 +65,7 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1280" data-image-height="785">
-
               <img class="u-back-image u-expanded" src="{{two_photo}}">
-
             </div>
             <div class="u-over-slide u-shading u-over-slide-2">
               <h3 class="u-gallery-heading"></h3>
@@ -83,9 +74,7 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1280" data-image-height="853">
-
               <img class="u-back-image u-expanded" src="{{three_photo}}">
-
             </div>
             <div class="u-over-slide u-shading u-over-slide-3">
               <h3 class="u-gallery-heading"></h3>
@@ -94,11 +83,8 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1280" data-image-height="852">
-
               <img class="u-back-image u-expanded" src="{{four_photo}}">
-
             </div>
-
             <div class="u-over-slide u-shading u-over-slide-4">
               <h3 class="u-gallery-heading"></h3>
               <p class="u-gallery-text"></p>
@@ -116,8 +102,9 @@
             <p class="u-text u-text-grey-40 u-text-3"> {{row.content}}</p>
             </div>
            </div>
+           <h2 class="u-text u-text-grey-40 u-text-3">Most popular facilities</h2>
             {%for tag in tags%}
-            <p class="u-text u-text-grey-40 u-text-3"> {{tag.tag}}</p>
+            <p class="u-text u-text-grey-40 u-text-3">{{tag.tag}}</p>
             {%endfor%}
           </div>
         </div>
@@ -156,42 +143,42 @@
                 <td class="u-table-cell u-table-cell-8">$ {{row.price_business}}</td>
                 {%endfor%}
               </tr>
-<!--              <tr style="height: 30px;">-->
-<!--                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">Vacancy</td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-6ba6" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-align-center u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-c154" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-ca86" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr style="height: 30px;">-->
-<!--                <td class="u-align-left u-first-column u-table-cell u-table-cell-13">Coffee and Lunch</td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-4"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-a1b2" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-5"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-bb4d" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-6"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-b9ee" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr style="height: 30px;">-->
-<!--                <td class="u-align-left u-table-cell u-table-cell-17">Sea view</td>-->
-<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-7"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-7276" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-8"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-d5be" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-9"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-1bed" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr style="height: 30px;">-->
-<!--                <td class="u-align-left u-table-cell u-table-cell-21">All inclusive</td>-->
-<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-10"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-9e00" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-11"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-3fe6" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-12"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-f53b" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp; -->
-<!--                </td>-->
-<!--              </tr>-->
+              <tr style="height: 30px;">
+                <td class="u-align-left u-first-column u-table-cell u-table-cell-9">Vacancy</td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-6ba6" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+                <td class="u-align-center u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-c154" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-ca86" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 30px;">
+                <td class="u-align-left u-first-column u-table-cell u-table-cell-13">Coffee and Lunch</td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-4"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-a1b2" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-5"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-bb4d" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-6"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-b9ee" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 30px;">
+                <td class="u-align-left u-table-cell u-table-cell-17">Sea view</td>
+                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-7"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-7276" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-8"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-d5be" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-9"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-1bed" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+              </tr>
+              <tr style="height: 30px;">
+                <td class="u-align-left u-table-cell u-table-cell-21">All inclusive</td>
+                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-10"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-9e00" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-1-base">&nbsp;<span class="u-icon u-icon-11"><svg class="u-svg-content" viewBox="0 0 342.947 342.947" x="0px" y="0px" id="svg-3fe6" style="width: 1em; height: 1em;"><polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947   171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "></polygon></svg><img></span>&nbsp;
+                </td>
+                <td class="u-table-cell u-text-palette-4-base">&nbsp;<span class="u-icon u-icon-12"><svg class="u-svg-content" viewBox="0 -46 417.81333 417" id="svg-f53b" style="width: 1em; height: 1em;"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"></path></svg><img></span>&nbsp;
+                </td>
+              </tr>
               <tr style="height: 50px;">
                 <td class="u-table-cell u-table-cellv-25"></td>
                 <td class="u-table-cell">

@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.urls import reverse
 
 
@@ -39,7 +38,7 @@ class Hotels(models.Model):
 
 class Galery(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/',verbose_name='Фотография')
-    hotel_id = models.ForeignKey('Hotels', on_delete=models.PROTECT, verbose_name='Город')
+    hotel_id = models.ForeignKey('Hotels', on_delete=models.PROTECT, verbose_name='Отель')
 
 
 class Tag(models.Model):
@@ -58,7 +57,7 @@ class Users(models.Model):
 
 
 class Ticket(models.Model):
-    name_user_ticket = models.CharField(max_length=30, verbose_name='Имя')
+    name_user_ticket = models.CharField(max_length=30, verbose_name='Имя',)
     email_user_ticket = models.EmailField(max_length=30, verbose_name='Email')
     time_go = models.DateField(verbose_name='Дата вылета',)
     time_back = models.DateField(verbose_name='Дата прилета',)
@@ -67,5 +66,5 @@ class Ticket(models.Model):
         (2, 'Стандартный Номер'),
         (3, 'Бизнес люкс'),
     ]
-    choose = models.PositiveSmallIntegerField(("choose") , choices=CHOOSE,blank=False,default=1)
+    choose = models.PositiveSmallIntegerField(("choose"), choices=CHOOSE, blank=False, default=1)
 

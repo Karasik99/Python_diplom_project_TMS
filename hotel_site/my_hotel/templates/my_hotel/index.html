@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="my_hotel/static/css/style_for_home.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:300i,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <title>Vira | Home</title>
+</head>
+<body>
+{% block navbar %}
+<header class="header" id="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo" data-scroll="#intro">Vira | Home</div>
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="Home">Home</a>
+                <a class="nav__link" href="hotels#0">Hotels</a>
+                {% if request.user.is_authenticated %}
+                    <b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
+                {%else%}
+                    <a class="nav__link" href="Login" >Login in</a>
+                    <a class="nav__link" href="Register" >Sign up</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+<div class="page">
+
+    <!-- Intro -->
+    <div class="intro" id="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <h2 class="intro__suptitle">TeachMeSkills</h2>
+                <h1 class="intro__title">Diplom Project</h1>
+            </div>
+        </div>
+
+        <div class="slider">
+            <div class="container">
+                <div class="slider__inner">
+                    <div class="slider__item active">
+                        <span class="slider__num">01</span>
+                        <a class="nav__link" href="#" data-scroll="#about">About me</a>
+                    </div>
+                    <div class="slider__item">
+                        <span class="slider__num">02</span>
+                        <a class="nav__link" href="#" data-scroll="#site">About site</a>
+                    </div>
+                    <div class="slider__item">
+                        <span class="slider__num">03</span>
+                        <a class="nav__link" href="#" data-scroll="#galery">Simple galery</a>
+                    </div>
+                    <div class="slider__item">
+                        <span class="slider__num">04</span>
+                        <a class="nav__link" href="#" data-scroll="#map">Map</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.intro -->
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section__header">
+                <h3 class="section__suptitle">What I do</h3>
+                <h2 class="section__title">Story about me</h2>
+                <div class="section__text">
+                    <p>My name is Nikita, this is my graduation project. It took a lot of effort, time and sleepless nights for all the preparation, layout, and business logic thinking. This graduation project was written by me in 1.5 months.
+                        A lot of time was devoted directly to the structure of the site: creating a skeleton of the body, searching for the right articles, a huge catch of errors during testing, putting things in order and beauty.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__item">
+                    <div class="card__inner">
+                        <div class="card__img">
+                            <img src="my_hotel/static/images_for_home_page/about/1.jpg" alt="">
+                        </div>
+                        <div class="card__text">Chief Website Designer</div>
+                    </div>
+                </div>
+
+                <div class="card__item">
+                    <div class="card__inner">
+                        <div class="card__img">
+                            <img src="my_hotel/static/images_for_home_page/about/2.jpg" alt="">
+                        </div>
+                        <div class="card__text">Website Developer</div>
+                    </div>
+                </div>
+
+                <div class="card__item">
+                    <div class="card__inner">
+                        <div class="card__img">
+                            <img src="my_hotel/static/images_for_home_page/about/3.jpg" alt="">
+                        </div>
+                        <div class="card__text">Cool Director</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </section>
+
+
+
+    <div class="statistics">
+        <div class="container">
+
+            <div class="stat">
+                <div class="stat__item">
+                    <div class="stat__count">200+</div>
+                    <div class="stat__text">Lost time (hour)</div>
+                </div>
+                <div class="stat__item">
+                    <div class="stat__count">1</div>
+                    <div class="stat__text">Happy man</div>
+                </div>
+                <div class="stat__item">
+                    <div class="stat__count">1.5 month</div>
+                    <div class="stat__text">Project writing</div>
+                </div>
+                <div class="stat__item">
+                    <div class="stat__count">300+</div>
+                    <div class="stat__text">cup of coffee</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <section class="section" id="site">
+        <div class="container">
+
+            <div class="section__header">
+                <h3 class="section__suptitle">About site</h3>
+                <h2 class="section__title">Litle information about site</h2>
+            </div>
+
+            <div class="wedo">
+                <div class="wedo__item">
+                    <img class="wedo__img" src="my_hotel/static/images_for_home_page/wedo.jpg" alt="">
+                </div>
+
+                <div class="wedo__item">
+
+                    <div class="accordion">
+                        <div class="accordion__item" data-collapse="#wedo_1">
+                            <div class="accordion__header">
+                                <img class="accordion__icon" src="my_hotel/static/images_for_home_page/services/photography.png" alt="">
+                                <div class="accordion__title">A little about the Photo</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_1">
+                                <p>Thanks to the Internet, I managed to find a lot of beautiful photos, which eventually became key in my project.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item active" data-collapse="#wedo_2">
+                            <div class="accordion__header">
+                                <img class="accordion__icon" src="my_hotel/static/images_for_home_page/services/creativity.png" alt="">
+                                <div class="accordion__title">A little about the Site</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_2">
+                                <p>I did not regret that I chose "Website about the hotel" as my graduation project, I think that this is a creative topic that can be developed for a very long time.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item" data-collapse="#wedo_3">
+                            <div class="accordion__header">
+                                <img class="accordion__icon" src="my_hotel/static/images_for_home_page/services/webdesign.png" alt="">
+                                <div class="accordion__title">A little about the Web Design</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_3">
+                                <p>The entire design of the site is written almost by hand, the pitfalls remain, but they are not critical.</p>
+                            </div>
+                        </div>
+                    </div><!-- /.accordion -->
+
+                </div><!-- /.wedo__item -->
+            </div><!-- /.wedo -->
+
+        </div>
+    </section>
+
+    <section class="section" id="galery">
+        <div class="container">
+            <div class="section__header">
+                <h3 class="section__suptitle">Simple Galery</h3>
+                    <h2 class="section__title">A simple gallery as an element of decor</h2>
+                <div class="section__text">
+                </div>
+            </div>
+        </div>
+
+        <div class="works">
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/1.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/2.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/3.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/4.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/5.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/6.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilkot</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="my_hotel/static/images_for_home_page/works/7.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Сreative designer</div>
+                        <div class="works__text">Nikita Neilko</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.works -->
+    </section>
+
+
+    <!-- Map -->
+    <section class="section section--map" id="map">
+        <div class="container">
+            <div class="map">
+                <h2 class="map__title">
+                    <div><i class="fas fa-map-marker-alt"></i></div>
+                    <a href="https://www.google.fr/maps/place/vulica+Cimirazieva+67,+Minsk/@53.9251614,27.5083797,21z/data=!4m5!3m4!1s0x46dbc56c6eaf16fb:0x74b6503ad1245633!8m2!3d53.9251905!4d27.5083249" target="_blank">Open Map</a>
+                </h2>
+            </div>
+        </div>
+    </section>
+            <div class="copyright">
+                © 2022 September Minsk <span>TeachmeSkills</span>
+            </div>
+        </div><!-- /.container -->
+    </footer>
+
+</div><!-- /.page -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="my_hotel/static/js/for_home_page.js"></script>
+
+
+</body>
+</html>

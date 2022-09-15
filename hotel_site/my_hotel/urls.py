@@ -1,5 +1,4 @@
 from django.http import request
-
 from . import views
 from django.urls import path
 from .models import *

@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 
 def preview(request):
-    return render(request, 'my_hotel/preview.html')
+    return render(request, 'my_hotel/index.html')
 
 
 def show_hotels(request):
@@ -63,7 +63,7 @@ def register(request):
             Users.objects.create(name_user=new_user.username,
                                  email_user=new_user.email)
 
-            return render(request, 'my_hotel/preview.html', {'user_form': user_form})
+            return render(request, 'my_hotel/index.html', {'user_form': user_form})
     else:
         user_form = UserRegistrationForm()
     return render(request, 'my_hotel/auth/register.html', {'user_form': user_form})
