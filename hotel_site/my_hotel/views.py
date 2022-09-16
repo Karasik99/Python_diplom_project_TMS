@@ -49,8 +49,7 @@ def show_post(request, id):
         'one_photo' : one_photo,
         'two_photo': two_photo,
         'three_photo': three_photo,
-        'four_photo' : four_photo
-    }
+        'four_photo' : four_photo}
     return render(request, 'my_hotel/show_post.html', context)
 
 
@@ -108,6 +107,8 @@ def bookinghotels(request, id):
         else:
             form = ContactForm(request.POST)
         return render(request, 'my_hotel/testforma.html', {'form': form})
+    else:
+        return redirect('Login')
 
 
 def last(request, id1, id2):

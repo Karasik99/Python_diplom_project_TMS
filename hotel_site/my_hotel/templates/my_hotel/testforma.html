@@ -15,7 +15,7 @@
 				<div class="header__logo" data-scroll="#intro">Vira | Ticket Form</div>
 					<nav class="nav" id="nav">
 						<a class="nav__link" href="Home">Home</a>
-						<a class="nav__link" href="hotels">Hotels</a>
+						<a class="nav__link" href="hotels#0">Hotels</a>
 						{% if request.user.is_authenticated %}
 							<b><a class="nav__link" href="#">{{ user.username }} </a></b> | <a class="nav__link" href="{% url 'Out' %}">Logout</a>
 						{%else%}
@@ -43,7 +43,7 @@
 						<form action="" method="post">
 							{{ form.as_p }}
 							{% csrf_token %}
-							<button type="submit" class="form-control btn btn-primary submit px-3">Забронировать</button>
+							<button type="submit" class="form-control btn btn-primary submit px-3">Перейти к оплате</button>
 						</form>
 					</div>
 		</section>
